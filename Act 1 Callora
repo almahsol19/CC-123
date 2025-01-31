@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    srand(time(NULL));
+    int number_to_guess = (rand() % 100) + 1;
+    int attempts = 0;
+
+    printf("Welcome to the number guessing game!\n");
+    printf("I'm thinking of a number between 1 and 100.\n");
+
+    while (1) {
+        int user_guess;
+        printf("Enter your guess (1-100): ");
+        scanf("%d", &user_guess);
+
+        if (user_guess < 1 || user_guess > 100) {
+            printf("Invalid input. Please enter a number between 1 and 100.\n");
+            continue;
+        }
+
+        attempts++;
+
+        if (user_guess < number_to_guess) {
+            printf("Too low!\n");
+        } else if (user_guess > number_to_guess) {
+            printf("Too high!\n");
+        } else {
+            printf("Congratulations! You guessed the correct number.\n");
+            printf("You won in %d attempts!\n", attempts);
+            break;
+        }
+    }
+
+    return 0;
+}
