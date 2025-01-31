@@ -1,22 +1,22 @@
-#include <stdio.h>
+#include <stdio.h>  // Include the standard input-output library
 
-int main() {
+int main() {  // Main function where program execution starts
     
-    
-    int x;
-    
+    int x;  // Declare an integer variable to store user input
 
-    printf("Guess the number: ");
-    scanf("%d", &x);
+    printf("Guess the number: ");  // Prompt the user to enter a number
+    scanf("%d", &x);  // Read the user's input and store it in variable x
     
-    if(x >= 10){
-        printf("high");
-        
+    // Check if the entered number is 10 or greater
+    if(x >= 10){  
+        printf("high");  // Print "high" if the number is 10 or more
+    }
+    else{  
+        printf("low");  // Print "low" if the number is less than 10
     }
     
-    else{
-        printf("low");
-    }
-    
-    return 0;
+    return 0;  // Indicate that the program executed successfully
 }
+
+This program asks the user to guess a number, then checks if it's 10 or greater (printing "high") or less than 10 (printing "low").
+
