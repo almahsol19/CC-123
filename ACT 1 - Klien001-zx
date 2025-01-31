@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h> 
+
+int main() {
+    int secretNumber;
+    int guess;
+
+    
+    srand(time(NULL)); 
+
+    secretNumber = rand() % 100 + 1;
+
+    printf("Guess the number between 1 and 100: ");
+   
+   // i used while loop to execute the number repeatedly as long as the condition is true
+    while (1) {
+        scanf("%d", &guess);
+
+        if (guess < secretNumber) {
+            printf("Too low!\n");
+        } else if (guess > secretNumber) {
+            printf("Too high!\n");
+        } else {
+            printf("You got it!\n");
+            break;
+        }
+    }
+
+    return 0;
+}
