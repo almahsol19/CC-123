@@ -3,28 +3,39 @@
 #include <time.h>
 
 int main() {
-    srand(time(NULL)); // Seed the random number generator with the current time
-    int numberToGuess = rand() % 100 + 1; // Generate a random number between 1 and 100
-    int numberOfTries = 0; // Initialize the number of tries to 0
+    srand(time(NULL));
+    int numberToGuess = rand() % 100 + 1;
+    int numberOfTries = 0;
+    int userGuess;
 
     printf("Welcome to Guess My Number!\n");
     printf("I'm thinking of a number between 1 and 100.\n");
 
-    while (1) { // Infinite loop to keep the game running until the correct number is guessed
-        int userGuess;
+    while (1) {
         printf("Enter your guess: ");
-        scanf("%d", &userGuess); // Read the user's guess
-        numberOfTries++; // Increment the number of tries
 
-        if (userGuess < numberToGuess) { // If the guess is too low 
+        if (scanf("%d", &userGuess) != 1) {
+            printf("Invalid input. Please enter an integer.\n");
+            while (getchar() != '\n');
+            continue;
+        }
+
+        if (userGuess < 1 || userGuess > 100) {
+            printf("Out of range! Enter a number between 1 and 100.\n");
+            continue;
+        }
+
+        numberOfTries++;
+
+        if (userGuess < numberToGuess) {
             printf("Too low! Try again.\n");
-        } else if (userGuess > numberToGuess) { // If the guess is too high
+        } else if (userGuess > numberToGuess) {
             printf("Too high! Try again.\n");
-        } else { // If the guess is correct
+        } else {
             printf("Congratulations! You found the number in %d tries.\n", numberOfTries);
-            break; // Exit the loop
+            break;
         }
     }
 
-    return 0; // End of the program
+    return 0;
 }
