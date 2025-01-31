@@ -10,7 +10,7 @@ int main() {
         return main();
     }
 
-    if (guess > Number) {
+    if (guess >= Number) {
         printf("Too high\n");  // Dako ra kaayo  
     } else if (guess < Number) {
         printf("Too low\n");   // Gamay ra kaayo  
