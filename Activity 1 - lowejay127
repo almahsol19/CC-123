@@ -1,13 +1,39 @@
 #include <stdio.h>
+        #include <time.h>
         
         int main (){
         
-        int x;
+
+printf("\t    🦖RoshiPlays🦖\n");
+      fflush(stdout);
+        sleep(1);
+    
+    printf("\t Shikifujin production\n");
+      fflush(stdout);
+        sleep(1);
+    
+    printf("\n\t    Game loading ");
+      fflush(stdout);
+        sleep(1);
+    
+    printf("3 ");
+      fflush(stdout);
+        sleep(1);
+    
+    printf("2 ");
+      fflush(stdout);
+        sleep(1);
+    
+    printf("1\n\n");
+      fflush(stdout);
+        sleep(1);
+        
+        int inputnumber;
                 
                 printf("Guess the Number: "); 
-                scanf("%d", &x);
+                scanf("%d", &inputnumber);
                 
-                if(11 <= x) {
+                if(10 <= inputnumber) {
                 printf("too high");
                 }
                 else{
