@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+
+void playGame(int min, int max);
+int getValidInput(int min, int max);
+
+int main() {
+    int x, y;
+
+    printf("Enter the minimum number: ");
+    scanf("%d", &x);
+    printf("Enter the maximum number: ");
+    scanf("%d", &y);
+
+    if (x >= y) {
+        printf("Invalid range! Minimum should be less than maximum.\n");
+        return 1;  
+    }
+
+    playGame(x, y);
+    return 0;
+}
+
+void playGame(int min, int max) {
+    srand(time(NULL));  
+    int target = (rand() % (max - min + 1)) + min;  
+    int guess;
+
+    printf("\nGuess the number between %d and %d!\n", min, max);
+
+    while (1) {
+        guess = getValidInput(min, max);
+
+        if (guess > target) {
+            printf("Too high!\n");
+        } else if (guess < target) {
+            printf("Too low!\n");
+        } else {
+            printf("Congratulations! You guessed the number.\n");
+            break;  
+        }
+    }
+}
+
+int getValidInput(int min, int max) {
+    int num;
+    while (1) {
+        printf("Enter your guess: ");
+        if (scanf("%d", &num) == 1) {  
+            if (num >= min && num <= max) {
+                return num;
+            } else {
+                printf("Out of range! Please enter a number between %d and %d.\n", min, max);
+            }
+        } else {
+            printf("Invalid input! Please enter a valid number.\n");
+            while (getchar() != '\n'); 
+        }
+    }
+}
