@@ -1,0 +1,20 @@
+#include <stdio.h>
+        
+        int main (){
+        
+        int x;
+                
+                printf("Guess the Number: "); 
+                scanf("%d", &x);
+                
+                if(11 <= x) {
+                printf("too high");
+                }
+                else{
+                printf("too low");
+                }
+                
+                return 0;
+                
+                }
+        
