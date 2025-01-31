@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    
+    
+    int x;
+    
+
+    printf("Guess the number: ");
+    scanf("%d", &x);
+    
+    if(x >= 10){
+        printf("high");
+        
+    }
+    
+    else{
+        printf("low");
+    }
+    
+    return 0;
+}
