@@ -1,0 +1,58 @@
+#include <stdio.h>
+    
+    // To calculate the final grade and assign a letter grade
+char calculate_grade(float quiz, float assignment, float exam) {
+    float quiz_weight = 0.3;
+    float assignment_weight = 0.5;
+    float exam_weight = 0.7;
+    
+    // Calculate the final grade using the weighted average
+    float finalgrade = (quiz * quiz_weight) + (assignment * assignment_weight) + (exam * exam_weight);
+
+    if (finalgrade >= 90) {
+        return 'A';
+    } else if (finalgrade >= 80) {
+        return 'B';
+    } else if (finalgrade >= 70) {
+        return 'C';
+    } else if (finalgrade >= 60) {
+        return 'D';
+    } else {
+        return 'F';
+    }
+}
+
+int main() {
+    int num_students;
+
+    printf("Enter the number of your students: ");
+    scanf("%d", &num_students);
+    
+    // I Use Loop through each student
+    for (int i = 1; i <= num_students; i++) {
+        int quiz;
+        int assignment;
+        int exam;
+
+        printf("\nEnter scores for student %d:\n", i);
+        printf("Quiz: \n");
+        scanf("%d", &quiz);
+        printf("Assignment: \n");
+        scanf("%d", &assignment);
+        printf("Exam: \n");
+        scanf("%d", &exam);
+
+        char grade = calculate_grade(quiz, assignment, exam);
+        printf("Student %d Grade: %c\n", i, grade);
+        
+        float finalgrade = (quiz * 0.3) + (assignment * 0.5) + (exam * 0.7);
+        printf("\nStudent %d Final Grade: %.2f\n", i, finalgrade);
+        
+        if (finalgrade < 75) {
+            printf("\nSEE YOU NEXT SEM\n");
+        }
+        printf("\n"); // I add a extra newline for spacing
+    }
+
+    return 0;
+}
