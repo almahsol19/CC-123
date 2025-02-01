@@ -13,15 +13,15 @@ int main() {
     int numStudents, i;
     float quiz, assignment, exam, finalScore;
 
-    
+    //Ask the number of students
     printf("Enter the number of students: ");
     scanf("%d", &numStudents);
 
-    
+    //Loop through each student
     for (i = 0; i < numStudents; i++) {
         printf("\nEnter scores for student %d:\n", i + 1);
         
-        
+        //input the scores
         printf("Enter Quiz Score: ");
         scanf("%f", &quiz);
         
@@ -31,13 +31,13 @@ int main() {
         printf("Enter Exam Score: ");
         scanf("%f", &exam);
         
-        
+        //calculate final scores based on weighted percentage
         finalScore = (quiz * 0.2) + (assignment * 0.3) + (exam * 0.5);
         
-    
+        //get the letter grade
         char letterGrade = calculateGrade(finalScore);
         
-    
+        //display the final score and letter grade
         printf("Final Score: %.2f\n", finalScore);
         printf("Letter Grade: %c\n", letterGrade);
     }
