@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+
+char calculateGrade(float finalScore) {
+    if (finalScore >= 90) return 'A';
+    else if (finalScore >= 80) return 'B';
+    else if (finalScore >= 70) return 'C';
+    else if (finalScore >= 60) return 'D';
+    else return 'F';
+}
+
+int main() {
+    int numStudents, i;
+    float quiz, assignment, exam, finalScore;
+
+    
+    printf("Enter the number of students: ");
+    scanf("%d", &numStudents);
+
+    
+    for (i = 0; i < numStudents; i++) {
+        printf("\nEnter scores for student %d:\n", i + 1);
+        
+        
+        printf("Enter Quiz Score: ");
+        scanf("%f", &quiz);
+        
+        printf("Enter Assignment Score: ");
+        scanf("%f", &assignment);
+        
+        printf("Enter Exam Score: ");
+        scanf("%f", &exam);
+        
+        
+        finalScore = (quiz * 0.2) + (assignment * 0.3) + (exam * 0.5);
+        
+    
+        char letterGrade = calculateGrade(finalScore);
+        
+    
+        printf("Final Score: %.2f\n", finalScore);
+        printf("Letter Grade: %c\n", letterGrade);
+    }
+
+    return 0;
+}
