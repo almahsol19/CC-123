@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main() {
+    int numberOfStudents = 0;
+
+    printf("Enter the number of students: ");
+    scanf("%d", &numberOfStudents);
+
+    for (int student = 1; student <= numberOfStudents; student++) {
+        int quiz;
+        int assignment;
+        int exam;
+
+    // In this line sir kay nag ask pila ang student og pila ilahang scores sa quiz, assignment og exam
+        printf("Enter scores for Student %d:\n", student);
+
+        printf("Enter Quiz Score (out of 100): ");
+        scanf("%d", &quiz);
+
+        printf("Enter Assignment Score (out of 100): ");
+        scanf("%d", &assignment);
+
+        printf("Enter Exam Score (out of 100): ");
+        scanf("%d", &exam);
+
+        //Diri dapita sir kay nag calculate sa final grade based on weighted percentage
+        double finalGrade = (quiz * 0.2) + (assignment * 0.3) + (exam * 0.5);
+
+        // Nag dstermine sa grade based sa final grade
+        char grade;
+        if (finalGrade >= 90) {
+            grade = 'A';
+        } else if (finalGrade >= 80) {
+            grade = 'B';
+        } else if (finalGrade >= 70) {
+            grade = 'C';
+        } else if (finalGrade >= 60) {
+            grade = 'D';
+        } else {
+            grade = 'F';
+        }
+
+        printf("Student %d's final grade is %.2f (%c)\n\n", student, finalGrade, grade);
+    }
+
+    return 0;
+}  
