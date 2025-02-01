@@ -1,9 +1,9 @@
 #include <stdio.h>
 //Function to get a valid score.
-int getValidScore(char *a) {
+int getValidScore(char *temp) {
     int score;
     while (1) {
-        printf("%s", a);
+        printf("%s", temp);
         if (scanf("%d", &score) == 1 && score >= 0 && score <= 100) {
         break; //to valid input.
         } else {
