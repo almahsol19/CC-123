@@ -6,6 +6,7 @@ const int WEIGHT_OF_EXAM = 50;
 
 int main() {
     int enterNumberOfStudent = 0;
+    printf("GRADING SYSTEM by gudema\n");
     printf("Enter the number of your students\nEnter: ");
     scanf("%d", &enterNumberOfStudent);
 
@@ -36,7 +37,6 @@ int main() {
     double studentGrade[enterNumberOfStudent];
 
     int answer;
-    printf("GRADING SYSTEM by gudema\n");
     printf("How many quizzes: ");
     scanf("%d", &answer);
     int numberOfQuiz[answer]; //number of quizzes
