@@ -1,0 +1,59 @@
+#include <stdio.h>
+
+// Structure to hold both the numerical and letter grade
+typedef struct {
+    float numericalGrade;
+    char letterGrade;
+} GradeResult;
+
+// Function to calculate the final grade (both numerical and letter)
+// based on quiz, assignment, and exam scores.
+GradeResult calculateGrade(float quiz, float assignment, float exam) {
+    GradeResult result;
+
+    // Calculate the weighted numerical grade.
+    // Quiz: 20%, Assignment: 30%, Exam: 50%
+    result.numericalGrade = quiz * 0.2 + assignment * 0.3 + exam * 0.5;
+
+    // Assign the letter grade based on the numerical grade.
+    if (result.numericalGrade >= 90) result.letterGrade = 'A';
+    else if (result.numericalGrade >= 80) result.letterGrade = 'B';
+    else if (result.numericalGrade >= 70) result.letterGrade = 'C';
+    else if (result.numericalGrade >= 60) result.letterGrade = 'D';
+    else result.letterGrade = 'F';
+
+    return result; // Return the GradeResult structure.
+}
+
+int main() {
+    int numStudents;
+
+    // Ask the user to enter the number of students.
+    printf("Enter number of students: ");
+    scanf("%d", &numStudents);
+
+    // Loop through each student to get and calculate their grades.
+    for (int i = 0; i < numStudents; i++) {
+        float quiz, assignment, exam;
+
+        // Display the student number.
+        printf("\nStudent %d:\n", i + 1);
+
+        // Ask the user to enter the quiz score.
+        printf("Quiz (out of 100): "); scanf("%f", &quiz);
+
+        // Ask the user to enter the assignment score.
+        printf("Assignment (out of 100): "); scanf("%f", &assignment);
+
+        // Ask the user to enter the exam score.
+        printf("Exam (out of 100): "); scanf("%f", &exam);
+
+        // Call the calculateGrade function to get the final grade.
+        GradeResult grade = calculateGrade(quiz, assignment, exam);
+
+        // Print the final numerical and letter grade.
+        printf("Final Grade: %.1f (%c)\n", grade.numericalGrade, grade.letterGrade);
+    }
+
+    return 0;
+}
