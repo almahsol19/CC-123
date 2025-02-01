@@ -1,0 +1,27 @@
+#include <stdio.h>
+// Determines the letter grade based on a weighted average of quiz, assignment, and exam scores.
+char calculateGrade(float quiz, float assignment, float exam) {
+    float finalGrade = quiz * 0.2 + assignment * 0.3 + exam * 0.5;
+    if (finalGrade >= 90) return 'A';
+    else if (finalGrade >= 80) return 'B';
+    else if (finalGrade >= 70) return 'C';
+    else if (finalGrade >= 60) return 'D';
+    else return 'F';
+}
+
+int main() { 
+// Prompts the user for the number of students and then processes grades for each student.
+    int numStudents;
+    printf("Enter number of students: ");
+    scanf("%d", &numStudents);
+
+    for (int student = 0; student < numStudents; student++) {
+        float quiz, assignment, exam;
+        printf("\nStudent %d:\n", student + 1);
+        printf("Quiz out of 100: "); scanf("%f", &quiz);
+        printf("Assignment out of 100: "); scanf("%f", &assignment);
+        printf("Exam: out of 100: "); scanf("%f", &exam);
+        printf("Final Grade: %c\n", calculateGrade(quiz, assignment, exam));
+    }
+    return 0; 
+}
