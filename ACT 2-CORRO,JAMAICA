@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+int CalculationOfAverage (int quiz,int assignment, int exam){
+int  scores =quiz +assignment +exam;
+double average = scores/3.0; // I separate the summing of scores and getting the avarage for more readable code
+
+if(average >=90 && average<=100){ //Getting their equivalent remarks.
+printf("\nThe student got A! With the average of %.2lf %",average);
+} else if(average >= 80 && average <=89){
+printf("\nThe student got B! With the average of %.2lf percent",average);
+}else if(average >= 70 && average <= 79){
+printf("\nThe student got C! With the average of %.2lf percent",average );
+}
+ else if(average >= 60 && average <=69){
+printf("\nThe student got E! With the average of %.2lf percent",average);
+} else if( average <60){
+printf("\nThe student got F. With the average of %.2lf percent\n",average);
+}
+printf("••••••••••••••••••••••••••••••••••••••••••••\n");
+}
+int main(){
+int EnterNumberOfStudents=0;
+
+printf("Enter the number of students: ");  
+scanf("%d",&EnterNumberOfStudents);
+
+for(int student=0;student != EnterNumberOfStudents;student++){
+int quiz,assignment, exam;
+printf("\nEnter all the score of student number %d.\n",student+1);
+printf("Enter the student's Quiz score(0-100):");
+if(scanf("%d",&quiz) >=0 && quiz <=100){ // for validation of Input,  ensuring the user input a valid score
+printf("Enter the student's Assignment score(0-100):");
+if(scanf("%d",&assignment) >=0 && assignment <=100){
+printf("Enter the student's exam score(0-100):");
+if(scanf("%d",&exam) >=0 && exam <=100){ 
+ }else { 
+printf("Invalid Input!");
+return 1;
+}
+}else{
+printf("Invalid Input!");
+return 1;  // the function exits if the user enter a invalid Input. 
+}
+}else{
+printf("Invalid Input");
+return 1;
+}
+CalculationOfAverage(quiz,assignment, exam); //calling the function of callculating ogfaverage
+}
+
+ return 0;
+ }
