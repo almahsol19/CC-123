@@ -96,7 +96,7 @@ int main() {
             examTotalOfStudent[student] += examScore[student];
         }
     }
-    printf("\n");
+    printf("\n\n");
     for(int student = 0; student < enterNumberOfStudent; student++){
         quizTotalWithWeight[student] = (quizTotalOfStudent[student] / (double)quizTotalOfOver) * WEIGHT_OF_QUIZ;
         assignmentTotalWithWeight[student] = (assignmentTotalOfStudent[student] / (double)assignmentTotalOfOver) * WEIGHT_OF_ASSIGNMENT;
@@ -104,6 +104,7 @@ int main() {
     }
     printf("\n");    
     //print grade of students
+    printf("Student's Grade");
     for(int student = 0; student < enterNumberOfStudent; student++){
         studentGrade[student] = quizTotalWithWeight[student] + assignmentTotalWithWeight[student] + examTotalWithWeight[student];
         printf("Student %d Grade: ", student+1);
