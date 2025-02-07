@@ -1,0 +1,77 @@
+#include <stdio.h>
+
+int main() {
+
+
+
+//row  pakilid
+//column paubos
+
+    int row, col, space = 1;
+        //t
+    for(row=1;row<=5;row++) {
+                    //t
+        for(col = 1; col <= 5; col++) {
+                                                    
+            if(col == 1 || col == 5 || row == 1 || row == 3 )
+                printf("* ");
+            else
+                printf("  ");
+        }
+        printf("\n");
+    }
+  printf("\n");
+    for(row=1;row<=5;row++) {
+        for(space=1;space<=5;space++)
+        printf(" ");
+        for(col = 1; col <= 5; col++) {
+            if(row == 5|| col == 1)
+                printf("* ");
+            else
+                printf("  ");
+        }
+        printf("\n");
+    }
+    printf("\n");
+    for(row=1;row<=5;row++) {
+        for(space=1;space<=10;space++)
+        printf(" ");
+       for(col = 1; col <= 9; col++) {
+            if(col == 10 - row || col == row) {
+                printf("*");
+            } else {
+                printf(" ") ;   
+            }
+        }
+
+        printf("\n");
+    }
+printf("\n");
+    for(row=1;row<=5;row++) {
+        for(space=1;space<=15;space++)
+        printf(" ");
+        for(col=1;col<=5;col++) {
+            if(row==1 || col==3 || row==5)
+            printf("* ");
+            else 
+            printf("  ");
+        }
+        printf("\n");
+    }
+    printf("\n");
+
+    for(row=1;row<=5;row++) {
+        for(space=1;space<=20;space++)
+        printf(" ");
+                for(col = 1; col <= 5; col++) {
+                 //t        f.            t          f
+            if(col == 1 || col == 5 || row == 1 || row == 3 )
+                printf("* ");
+            else
+                printf("  ");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
