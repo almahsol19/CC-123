@@ -36,8 +36,8 @@ void printB(int spaces) {
 }
 
 void printStaircase() {
-    char name[] = "CABA"; // Updated to print only "CABA"
-    int length = 4; // Length of the new name
+    char name[] = "CABA";
+    int length = 4;
     
     for (int i = 0; i < length; i++) {
         switch (name[i]) {
