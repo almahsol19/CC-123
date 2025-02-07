@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+// Function to print letters using loops
+void printLetter(char letter, int spacing);
+
+int main() {
+    char word[] = "BUCABUCA"; 
+    int spacing = 2;  // Ari kay ang space between letters
+
+    // Print each letter dynamically
+    for (int i = 0; word[i] != '\0'; i++) {
+        printLetter(word[i], i * spacing);
+    }
+
+    return 0;
+}
+
+// Function to print a single letter with spacing
+void printLetter(char letter, int spacing) {
+    int row, col;
+
+    for (row = 1; row <= 5; row++) {
+        // Print spaces for alignment
+        for (int s = 0; s < spacing; s++) {
+            printf("  ");
+        }
+
+        // Print letter pattern
+        for (col = 1; col <= 5; col++) {
+            if ((letter == 'B' && (col == 1 || row == 1 || row == 3 || row == 5 || (col == 5 && row != 1 && row != 3 && row != 5))) ||
+                (letter == 'U' && (col == 1 || col == 5 || row == 5)) ||
+                (letter == 'C' && (col == 1 || row == 1 || row == 5)) ||
+                (letter == 'A' && (col == 1 || col == 5 || row == 1 || row == 3))) {
+                printf("* ");
+            } else {
+                printf("  ");
+            }
+        }
+        printf("\n");
+    }
+    printf("\n");  // Space between letters
+}
