@@ -1,0 +1,106 @@
+#include <stdio.h>
+
+void printC(int spaces) {
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf(" *****\n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*\n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*\n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf(" *****\n");
+}
+
+void printA(int spaces) {
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("  *  \n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf(" * * \n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*****\n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*   *\n");
+}
+
+void printB(int spaces) {
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("**** \n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*   *\n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("**** \n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*   *\n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("**** \n");
+}
+
+void printR(int spaces) {
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("**** \n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*   *\n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("**** \n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*  * \n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*   *\n");
+}
+
+void printU(int spaces) {
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*   *\n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*   *\n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*   *\n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*****\n");
+}
+
+void printI(int spaces) {
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("***\n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf(" * \n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf(" * \n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("***\n");
+}
+
+void printS(int spaces) {
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*****\n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*    \n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*****\n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("    *\n");
+    for (int i = 0; i < spaces; i++) printf("  ");
+    printf("*****\n");
+}
+
+void printStaircase() {
+    char name[] = "CABARRUBIAS";
+    int length = 11; // Length of the name
+    
+    for (int i = 0; i < length; i++) {
+        switch (name[i]) {
+            case 'C': printC(i); break;
+            case 'A': printA(i); break;
+            case 'B': printB(i); break;
+            case 'R': printR(i); break;
+            case 'U': printU(i); break;
+            case 'I': printI(i); break;
+            case 'S': printS(i); break;
+        }
+    }
+}
+
+int main() {
+    printStaircase();
+    return 0;
+}
