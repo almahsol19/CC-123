@@ -1,0 +1,65 @@
+#include <stdio.h>
+int main(){
+    int letter, row, col;
+    for(letter = 0; letter < 7; letter++){
+        for(row = 0; row < 5; row++){
+            for(col = 0; col < 5; col++){
+                if(letter == 0){
+                    if(row == 0 || row == 2)
+                        printf("*");
+                    else if(col == 0)
+                        printf("*");
+                    else
+                        printf(" ");
+                } else if(letter == 1){
+                    if(row == 4)
+                        printf("*");
+                    else if(col == 0 || col == 4)
+                        printf("*");
+                    else
+                        printf(" ");
+                } else if(letter == 2){
+                    if(row == 0 || row == 2 || row == 4)
+                        printf("*");
+                    else if(col == 0)
+                        printf("*");
+                    else
+                        printf(" ");
+                } else if(letter == 3){
+                    if(col == 0 || col == 4)
+                        printf("*");
+                    else if((row == 1 && col == 1) || (row == 2 && col == 2) || (row == 3 && col == 3))
+                        printf("*");
+                    else
+                        printf(" ");
+                } else if(letter == 4){
+                    if(row == 0)
+                        printf("*");
+                    else if(col == 2)
+                        printf("*");
+                    else
+                        printf(" ");
+                } else if(letter == 5){
+                    if(row == 0 || row == 2 || row == 4)
+                        printf("*");
+                    else if(col == 0)
+                        printf("*");
+                    else
+                        printf(" ");
+                } else if(letter == 6){
+                    if(row == 0 || row == 2 || row == 4)
+                        printf("*");
+                    else if(row == 1 && col == 0)
+                        printf("*");
+                    else if(row == 3 && col == 4)
+                        printf("*");
+                    else
+                        printf(" ");
+                }
+            }
+            printf("\n");
+        }
+        printf("\n");
+    }
+    return 0;
+}
