@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+int main() {
+    int row, column;
+    
+    for(row = 1; row <= 5; row++) { // code block to print letter D
+        for(column = 1; column <= 5; column++) {
+            if((row == 1 && (column != 5)) || (row == 2 && (column == 1 || column == 5)) || (row == 3 && (column == 1 || column == 5)) || (row == 4 && (column == 1 || column == 5)) || (row == 5 && (column != 5)))
+            printf("* ");
+            else printf("  ");
+        }
+        printf("\n");
+    }
+    
+    printf("\n"); //new line to separate the letters for much clearer output
+    
+    for (row = 1; row <= 5; row++) { // code block to print letter A
+            printf("\t\t"); //indent to print the word diagonally
+        for (column = 1; column <= 5; column++) {
+            if (row == 1 && (column != 1 && column != 5) || (row == 2 && (column == 1 || column == 5)) || (row == 3) || (row == 4 && (column == 1 || column == 5 )) || (row == 5 && (column == 1 || column == 5)))
+            printf("* ");
+            else printf("  ");
+        }
+        printf("\n");
+    }
+    
+    printf("\n"); //new line to separate the letters for much clearer output
+    
+    for(row = 1; row <= 5; row++) { // code block to print letter Z
+        printf("\t\t\t\t"); //indent to print the word diagonally
+        for (column = 1; column <= 5; column++) {
+            if (row == 1 || (row == 2 && (column == 4)) || (row == 3 && (column == 3)) || (row == 4 && (column == 2)) || (row == 5))
+            printf("* ");
+            else printf("  ");
+        }
+        printf("\n");
+    }
+    
+    printf("\n"); //new line to separate the letters for much clearer output
+    
+    for(row = 1; row <= 5; row++) { // code block to print letter O
+        printf("\t\t\t\t\t\t"); //indent to print the word diagonally
+        for(column = 1; column <= 5; column++) {
+            if ((row == 1 && (column != 1 && column != 5)) || (row == 2 && (column == 1 || column == 5)) || (row == 3 && (column == 1 || column == 5)) || (row == 4 && (column == 1 || column == 5)) || (row == 5 && (column != 1 && column != 5)))
+            printf("* ");
+            else printf("  ");
+        }
+        printf("\n");
+    }
+}

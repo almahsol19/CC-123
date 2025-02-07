@@ -1,0 +1,83 @@
+#include <stdio.h>
+
+void printP() {
+    printf("***  \n");
+    printf("*  * \n");
+    printf("***  \n");
+    printf("*    \n");
+    printf("*    \n");
+}
+
+void printA() {
+    printf("    **\n");
+    printf("   *  *\n");
+    printf("  ****** \n");
+    printf("  *    * \n");
+    printf("  *    *\n");
+}
+
+void printL() {
+    printf("       *    \n");
+    printf("       *    \n");
+    printf("       *    \n");
+    printf("       *    \n");
+    printf("       *****\n");
+}
+
+void printO() {
+    printf("           *****\n");
+    printf("           *   *\n");
+    printf("           *   *\n");
+    printf("           *   *\n");
+    printf("           *****\n");
+    
+    
+}
+
+
+
+
+    
+
+int main() {
+    
+    int stairs = 4;
+
+
+    for (int i = 0; i < stairs; ++i) {
+        if (i == 0) {
+            printP();
+        } else {
+            printf("\n");  
+        }
+    }
+    
+    for (int i = 0; i < stairs; ++i) {
+        if (i == 0 || i == stairs ) {
+            printA();
+        } else {
+            printf("\n");  
+        }
+    }
+
+    for (int i = 0; i < stairs; ++i) {
+        if (i == 0) {
+            printL();
+        } else {
+            printf("\n");  
+        }
+    }
+
+    for (int i = 0; i < stairs; ++i) {
+        if (i == 0) {
+            printO();
+        } else {
+            printf("\n"); 
+        }
+    
+
+    
+    }
+
+    return 0;
+}

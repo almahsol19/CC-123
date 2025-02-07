@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int secretNumber, guess;
+
+    srand(time(0)); // initialize random numbers and the mumbers change every run 
+    secretNumber = rand() % 100 + 1; // generate random numbers between 1 and 100 
+
+    printf("Guess the number (1-100): ");
+
+    while (1) { //Create infinite loop //
+        scanf("%d", &guess);
+
+        if (guess > secretNumber) {
+            printf("Too high! Try again: ");
+        } else if (guess < secretNumber) {
+            printf("Too low! Try again: ");
+        } else {
+            printf("Congratulations! You guessed the number.\n");
+            break; // The loop will stop if you guess the correct number 
+        }
+    }
+
+    return 0;
+    
+    }

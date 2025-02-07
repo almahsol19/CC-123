@@ -1,0 +1,85 @@
+#include <stdio.h>
+
+
+void print_letter(char letter, int offset) {
+    int rows, num, space;
+
+    // Loop through each row of the letter
+    for (rows = 1; rows <= 5; rows++) {
+        // Print leading spaces for offset
+        for (space = 1; space <= offset; space++) {
+            printf(" ");
+        }
+
+        // Switch statement to determine which letter to print
+        switch (letter) {
+            case 'C':
+                // Loop through each column of the letter
+                for (num = 1; num <= 5; num++) {
+                    // Check if current position is part of the letter
+                    if (rows == 1 || rows == 5 || num == 1) {
+                        printf("*"); 
+                    } else {
+                        printf(" "); 
+                    }
+                }
+                break;
+
+            case 'A':
+                // Loop through each column of the letter
+                for (num = 1; num <= 5; num++) {
+                    // Check if current position is part of the letter
+                    if (rows == 1 || num == 1 || num == 5 || rows == 3) {
+                        
+                        if (!(rows == 1 && (num == 1 || num == 5))) {
+                            printf("*"); 
+                        } else {
+                            printf(" "); 
+                        }
+                    } else {
+                        printf(" "); 
+                    }
+                }
+                break;
+
+            case 'S':
+                // Loop through each column of the letter
+                for (num = 1; num <= 5; num++) {
+                    // Check if current position is part of the letter
+                    if (rows == 1 || rows == 3 || rows == 5 || (rows < 3 && num == 1) || (rows > 3 && num == 5)) {
+                        printf("*"); 
+                    } else {
+                        printf(" "); 
+                    }
+                }
+                break;
+
+            case 'I':
+                // Loop through each column of the letter
+                for (num = 1; num <= 5; num++) {
+                    // Check if current position is part of the letter
+                    if (rows == 1 || rows == 5 || num == 3) {
+                        printf("*"); 
+                    } else {
+                        printf(" "); 
+                    }
+                }
+                break;
+
+            default:
+                printf("Invalid letter"); // Handle invalid letter input
+                return;
+        }
+        printf("\n"); 
+    }
+    printf("\n"); 
+}
+
+int main() {
+    // Call function to print each letter with specified offset
+    print_letter('C', 0);
+    print_letter('A', 6);
+    print_letter('S', 12);
+    print_letter('I', 18);
+    return 0;
+}

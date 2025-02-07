@@ -1,0 +1,50 @@
+#include <stdio.h>
+// i used char with totalGrade function to calculate the total grades
+char totalGrade(float quiz, float assignment, float exam) {
+    float quizWeight = 0.5;
+    float assignmentWeight = 0.6;
+    float examWeight = 0.7;
+
+    float finalGrade = (quiz * quizWeight) + (assignment * assignmentWeight) + (exam * examWeight);
+
+    if (finalGrade >= 90) {
+        return 'A';
+    } else if (finalGrade >= 80) {
+        return 'B';
+    } else if (finalGrade >= 70) {
+        return 'C';
+    } else if (finalGrade >= 60) {
+        return 'D';
+    } else {
+        return 'F';
+    }
+}
+
+int main() {
+    int numberOfStudents;
+
+    printf("Enter the number of your students: ");
+    scanf("%d", &numberOfStudents);
+// i used loop to count the number of students and their scores
+    for(int students = 1; students <= numberOfStudents; students++) {
+    
+        int quiz;
+        int assignment;
+        int exam;
+
+        printf("\nEnter scores for student %d:\n", students);
+        printf("Quiz score: ");
+        scanf("%d", &quiz);
+        printf("Assignment score: ");
+        scanf("%d", &assignment);
+        printf("Exam score: ");
+        scanf("%d", &exam);
+// the code below is used to call the function which is the totalGrade and calculate the final grade
+        char grade = totalGrade(quiz, assignment, exam);
+        printf("Student %d Grade: %c\n", students, grade);
+        float finalGrade = (quiz * 0.5) + (assignment * 0.6) + (exam * 0.7);
+        printf("student %d Final Grade: %.2f\n", students, finalGrade);
+    }
+
+    return 0;
+}

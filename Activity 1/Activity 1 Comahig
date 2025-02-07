@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int guess, number = 50;
+
+// Im using infinite loop below
+
+    while (1) {
+        printf("Guess a number between 1 and 100: ");
+
+        if (scanf("%d", &guess) != 1) {
+            printf("Invalid input, pls try again\n");
+            while (getchar() != '\n');
+            continue;
+       }
+        if (guess < 1 || guess > 100) {
+            printf("Invalid input, pls try again\n");
+            
+     
+      } else if (guess < number) {
+           printf("%d is too low.\n", guess);
+       
+       } else if (guess > number) {
+           printf("%d is too high.\n", guess);
+            
+       } else {
+          printf("Congratulations! You guessed the number.\n");
+            break;
+        }
+    }
+
+    return 0;
+}

@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    int num_students;
+    
+    // Ask the user for the number of students
+    printf("Enter the number of students: ");
+    scanf("%d", &num_students);
+
+    for (int i = 1; i <= num_students; i++) {
+        float quiz, assignment, exam, final_grade;
+
+        // Input scores
+        printf("\nEnter details for Student %d:\n", i);
+        printf("Enter Quiz Score (out of 100): ");
+        scanf("%f", &quiz);
+        printf("Enter Assignment Score (out of 100): ");
+        scanf("%f", &assignment);
+        printf("Enter Exam Score (out of 100): ");
+        scanf("%f", &exam);
+
+        // Calculate final grade based on weighted percentage
+        final_grade = (quiz * 0.2) + (assignment * 0.3) + (exam * 0.5);
+
+        // Display final grade
+        printf("Final Grade for Student %d: %.2f%%\n", i, final_grade);
+    }
+
+    printf("\nGrade calculation completed!\n");
+
+    return 0;
+}

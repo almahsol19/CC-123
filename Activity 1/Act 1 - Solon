@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <time.h>
+
+int main() {
+    int number, InputNumber, attempts = 0; // 3 Variables
+
+    // Obtain a number based on the current time
+    time_t t;
+    time(&t);
+    number = (t % 100) + 1; // Generates a number between 1 and 100
+
+    // Print the title
+    printf("  Welcome to the Guess the Number game!\n");
+    printf("  I have selected a number between 1 and 100. Try to guess it!\n");
+
+    // Loop until the correct guess
+    do {
+        printf("\nEnter your guess: ");
+        scanf("%d", &InputNumber);
+        attempts++;
+        
+        if (InputNumber > number) {
+            printf("Too high! Try again.\n");
+        } else if (InputNumber < number) {
+            printf("Too low! Try again.\n");
+        } else {
+        // Correct Guess 
+            printf("Congratulations! You guessed the number in %d attempts.\n", attempts);
+        }
+    } while (InputNumber != number);
+
+    return 0;
+}

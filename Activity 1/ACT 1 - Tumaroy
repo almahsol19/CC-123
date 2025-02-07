@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+int numGuess = 0;
+srand(time(NULL)); // generate a number rondom
+int numbertoguess = rand() % 100 + 1; // this line of code is the limiter
+
+
+    printf("guess the number(1 - 100)\n");
+    
+    while(1){ // i used while loop to execute the number repeatedly as long as the condition is true
+    int num;    
+        
+        printf("\nenter a number: ");
+        scanf("%d",&num);
+        numGuess++;
+        
+        if(num < numbertoguess){
+            printf("the number is to low\n");
+            printf("try again!!!\n");
+        }
+        else if(num > numbertoguess){
+            printf("number is to high.\n");
+            printf("try again!!!\n");
+        }
+        else{
+            printf("congrats!!");
+            printf("you guess the number!!!\n");
+            printf("attempts: %d",numGuess);
+            break;
+        }
+        
+    }
+    
+    
+
+    return 0;
+}

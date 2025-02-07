@@ -1,0 +1,77 @@
+include <stdio.h>
+
+int main() {
+    float writtenExams[6], performanceTasks[4], exams[2];
+    float totalWrittenExam = 0, totalPerformanceTask = 0, totalExam = 0;
+    float finalScore;
+    int retry;
+
+    // Input for 6 Written Exams
+    printf("Enter scores for 6 Written Exams:\n");
+    for (int i = 0; i < 6; i++) {
+        float maxScore;
+        if (i == 0) maxScore = 30;
+        else if (i == 1) maxScore = 40;
+        else if (i == 2) maxScore = 20;
+        else if (i == 3) maxScore = 10;
+        else if (i == 4) maxScore = 20;
+        else maxScore = 18;
+
+        do {
+            printf("Written Exam %d (max %.0f): ", i + 1, maxScore);
+            if (scanf("%f", &writtenExams[i]) != 1 || writtenExams[i] < 0 || writtenExams[i] > maxScore) {
+                while (getchar() != '\n'); 
+                printf("Invalid input! Enter a number between 0 and %.0f.\n", maxScore);
+                printf("Press 1 to try again or 0 to exit: ");
+                scanf("%d", &retry);
+                if (retry == 0) return 0; 
+            }
+        } while (writtenExams[i] < 0 || writtenExams[i] > maxScore);
+
+        totalWrittenExam += writtenExams[i];
+    }
+
+    printf("\nEnter scores for 4 Performance Tasks (Max score 100 each):\n");
+    for (int i = 0; i < 4; i++) {
+        do {
+            printf("Performance Task %d: ", i + 1);
+            if (scanf("%f", &performanceTasks[i]) != 1 || performanceTasks[i] < 0 || performanceTasks[i] > 100) {
+                while (getchar() != '\n'); 
+                printf("Invalid input! Enter a number between 0 and 100.\n");
+                printf("Press 1 to try again or 0 to exit: ");
+                scanf("%d", &retry);
+                if (retry == 0) return 0; 
+            }
+        } while (performanceTasks[i] < 0 || performanceTasks[i] > 100);
+
+        totalPerformanceTask += performanceTasks[i];
+    }
+
+    printf("\nEnter scores for 2 Exams:\n");
+    for (int i = 0; i < 2; i++) {
+        float maxScore = (i == 0) ? 80 : 90;  
+        do {
+            printf("Exam %d (max %.0f): ", i + 1, maxScore);
+            if (scanf("%f", &exams[i]) != 1 || exams[i] < 0 || exams[i] > maxScore) {
+                while (getchar() != '\n'); 
+                printf("Invalid input! Enter a number between 0 and %.0f.\n", maxScore);
+                printf("Press 1 to try again or 0 to exit: ");
+                scanf("%d", &retry);
+                if (retry == 0) return 0; 
+            }
+        } while (exams[i] < 0 || exams[i] > maxScore);
+
+        totalExam += exams[i];
+    }
+
+    totalWrittenExam /= 138;  
+    finalScore = (totalWrittenExam * 0.2) + ((totalPerformanceTask / 4) * 0.5) + ((totalExam / 2) * 0.3);
+    
+    printf("\nFinal Score: %.2f\n", finalScore);
+    if (finalScore >= 90) printf("Grade: A\n");
+    else if (finalScore >= 80) printf("Grade: B\n");
+    else if (finalScore >= 70) printf("Grade: C\n");
+    else if (finalScore >= 60) printf("Grade: D\n");
+    else printf("Grade: F\n");
+
+    return 0;

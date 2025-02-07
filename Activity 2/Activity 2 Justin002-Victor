@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+#define MAX_STUDENTS 100
+
+// Function to calculate final grade
+float calculateGrade(float quiz, float assignment, float exam) {
+    return (quiz * 0.20) + (assignment * 0.30) + (exam * 0.50);
+}
+
+// Function to determine letter grade
+char getLetterGrade(float finalGrade) {
+    if (finalGrade >= 90)
+        return 'A';
+    else if (finalGrade >= 80)
+        return 'B';
+    else if (finalGrade >= 70)
+        return 'C';
+    else if (finalGrade >= 60)
+        return 'D';
+    else
+        return 'F';
+}
+
+int main() {
+    int numStudents;
+
+    printf("Enter the number of students: ");
+    scanf("%d", &numStudents);
+
+    if (numStudents <= 0 || numStudents > MAX_STUDENTS) {
+        printf("Invalid number of students. Please enter between 1 and %d.\n", MAX_STUDENTS);
+        return 1;
+    }
+
+    for (int i = 0; i < numStudents; i++) {
+        float quiz, assignment, exam, finalGrade;
+        char letterGrade;
+
+        printf("\nEnter grades for Student %d:\n", i + 1);
+
+        printf("Quiz Scores: ");
+        scanf("%f", &quiz);
+        
+        printf("Assignment Scores: ");
+        scanf("%f", &assignment);
+
+        printf("Exam Scores: ");
+        scanf("%f", &exam);
+
+        finalGrade = calculateGrade(quiz, assignment, exam);
+
+        letterGrade = getLetterGrade(finalGrade);
+
+        printf("Final Grade for Student %d: %c\n", i + 1, finalGrade, letterGrade);
+    }
+
+    printf("\nGrade Calculation Completed.\n");
+
+    return 0;
+}

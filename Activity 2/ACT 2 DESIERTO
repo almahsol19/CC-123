@@ -1,0 +1,67 @@
+#include <stdio.h>
+
+// Function to calculate the weighted percentage
+double calculate_weighted_percentage(double exam_score, double assignment_score, double quiz_score, double exam_max, double assignment_max, double quiz_max){
+    double exam_weight = 0.50;
+    double assignment_weight = 0.25;
+    double quiz_weight = 0.25;
+
+    //formula to get weigthepercentage 
+    double weighted_percentage = ((exam_score / exam_max) * exam_weight) + 
+                                 ((assignment_score / assignment_max) * assignment_weight) + 
+                                 ((quiz_score / quiz_max) * quiz_weight);
+
+    return weighted_percentage * 100;
+}
+
+int main() {
+    int num_students;
+
+    
+    printf("Enter the number of students: ");
+    scanf("%d", &num_students);
+
+    // A loop to get each students' scores
+    for (int i = 1; i <= num_students; i++) {
+        double exam_score, assignment_score, quiz_score, exam_max, assignment_max, quiz_max;
+
+        // Input the scores for the student
+        printf("\nEnter data for Student %d:\n", i);
+
+        printf("Enter the exam score: ");
+        scanf("%lf", &exam_score);
+        printf("Enter the maximum exam score: ");
+        scanf("%lf", &exam_max);
+
+        printf("Enter the assignment score: ");
+        scanf("%lf", &assignment_score);
+        printf("Enter the maximum assignment score: ");
+        scanf("%lf", &assignment_max);
+
+        printf("Enter the quiz score: ");
+        scanf("%lf", &quiz_score);
+        printf("Enter the maximum quiz score: ");
+        scanf("%lf", &quiz_max);
+
+        // the function used to calculate the weighted percentage for the student
+        double weighted_percentage = calculate_weighted_percentage(exam_score, assignment_score, quiz_score, exam_max, assignment_max, quiz_max);
+
+        // Displays the total weighted percentage of students
+        printf("Student %d's weighted percentage is: %.2f%%\n", i, weighted_percentage);
+
+        //use to determine the eqivalence of percentage to "letter" using if else if statement 
+        if (weighted_percentage >= 90 && weighted_percentage <= 100) {
+            printf("Student %d's equivalent grade is: A\n", i);
+        } else if (weighted_percentage >= 80 && weighted_percentage <= 89) {
+            printf("Student %d's equivalent grade is: B\n", i);
+        } else if (weighted_percentage >= 70 && weighted_percentage <= 79) {
+            printf("Student %d's equivalent grade is: C\n", i);
+        } else if (weighted_percentage >= 60 && weighted_percentage <= 69) {
+            printf("Student %d's equivalent grade is: D\n", i);
+        } else {
+            printf("Student %d's equivalent grade is: F\n", i);
+        }
+    }
+
+    return 0;
+}
