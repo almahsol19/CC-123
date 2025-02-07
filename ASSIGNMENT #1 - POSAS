@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+// Function to print any letter using a predefined pattern
+void printLetter(const char letter[5][6], int spaces) {  
+    for (int row = 0; row < 5; row++) {  
+        for (int col = 0; col < spaces; col++) {  
+            printf(" ");  
+        }
+        printf("%s\n", letter[row]);  
+    }
+}
+
+// Function to print "POSA"
+void printPOSA() {  
+    const char P[5][6] = { "*****", "*   *", "*****", "*", "*" };  
+    const char O[5][6] = { "*****", "*   *", "*   *", "*   *", "*****" };  
+    const char S[5][6] = { "*****", "*", "*****", "    *", "*****" };  
+    const char A[5][6] = { "  *  ", " * * ", "*****", "*   *", "*   *" };  
+
+    printLetter(P, 0);  
+    printf("\n");
+    printLetter(O, 6);  
+    printf("\n");
+    printLetter(S, 12);  
+    printf("\n");
+    printLetter(A, 18);  
+    printf("\n");
+}
+
+int main() {  
+    printPOSA();  
+}
