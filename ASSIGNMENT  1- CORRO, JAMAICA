@@ -31,16 +31,12 @@ void printR(int spaces) {
         for (int col= 0; col < spaces; col++) {
             printf(" "); // This is where spaces got printed 
         }
-        if ( row== 0) { // this block of codes print out the pattern of R
+        if ( row== 0 || row==2) { // this block of codes print out the pattern of R
             printf("*****\n");  
-        } else if (row== 1) {
+        } else if (row== 1 || row == 3) {
             printf("*   *\n");  
-        } else if (row == 2) {
-            printf("*****\n");  
-        } else if (row == 3) {
-            printf("*  *\n");  
         } else {
-            printf("*    *  \n");  
+            printf("*    * \n");  
         }
     }
 }
@@ -59,10 +55,11 @@ void printCORR() {
     printR(10);  
     printf("\n");
     
-    printR(15);  
+    printR(16);  
     printf("\n");
 }
 
 int main() {
-    printCORR(); //calling the function to call the within functions of the function to print the called functions.
+    printCORR(); //calling the function to call the within functions of the function to pring the called functions.
 }
+    
