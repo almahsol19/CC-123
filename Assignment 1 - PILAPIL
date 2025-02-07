@@ -1,0 +1,106 @@
+#include <stdio.h>
+
+int main() {
+    int row, column;
+
+    // Code block to print letter P
+    for(row = 1; row <= 5; row++) {
+        for(column = 1; column <= 5; column++) {
+            if((column == 1) || (row == 1 && column < 5) || (row == 3 && column < 5) || (column == 4 && row != 1 && row != 3 && row < 4))
+                printf("* ");
+            else 
+                printf("  ");
+        }
+        printf("\n");
+    }
+
+    printf("\n"); // New line to separate the letters
+
+    // Code block to print letter I
+    for(row = 1; row <= 5; row++) {
+    printf("\t");
+        for(column = 1; column <= 5; column++) {
+            if(row == 1 || row == 5 || column == 3)
+                printf("* ");
+            else 
+                printf("  ");
+        }
+        printf("\n");
+    }
+
+    printf("\n"); // New line to separate the letters
+
+    // Code block to print letter L
+    for(row = 1; row <= 5; row++) {
+    printf("\t\t");
+        for(column = 1; column <= 5; column++) {
+            if(column == 1 || row == 5)
+                printf("* ");
+            else 
+                printf("  ");
+        }
+        printf("\n");
+    }
+
+    printf("\n"); // New line to separate the letters
+
+    // Code block to print letter A
+    for(row = 1; row <= 5; row++) {
+    printf("\t\t\t");
+        for(column = 1; column <= 5; column++) {
+            if ((row == 1 && (column != 1 && column != 5)) || 
+                (row == 2 && (column == 1 || column == 5)) || 
+                (row == 3) || 
+                (row == 4 && (column == 1 || column == 5)) || 
+                (row == 5 && (column == 1 || column == 5)))
+                printf("* ");
+            else 
+                printf("  ");
+        }
+        printf("\n");
+    }
+
+    printf("\n"); // New line to separate the letters
+
+    // Code block to print letter P (again)
+    for(row = 1; row <= 5; row++) {
+    printf("\t\t\t\t");
+        for(column = 1; column <= 5; column++) {
+            if((column == 1) || (row == 1 && column < 5) || (row == 3 && column < 5) || (column == 4 && row != 1 && row != 3 && row < 4))
+                printf("* ");
+            else 
+                printf("  ");
+        }
+        printf("\n");
+    }
+
+    printf("\n"); // New line to separate the letters
+
+    // Code block to print letter I (again)
+    for(row = 1; row <= 5; row++) {
+    printf("\t\t\t\t\t");
+        for(column = 1; column <= 5; column++) {
+            if(row == 1 || row == 5 || column == 3)
+                printf("* ");
+            else 
+                printf("  ");
+        }
+        printf("\n");
+    }
+
+    printf("\n"); // New line to separate the letters
+
+    // Code block to print letter L (again)
+    for(row = 1; row <= 5; row++) {
+    printf("\t\t\t\t\t\t");
+        for(column = 1; column <= 5; column++) {
+            if(column == 1 || row == 5)
+                printf("* ");
+            else 
+                printf("  ");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
