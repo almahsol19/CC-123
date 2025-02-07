@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <string.h>
+
+void name(){
+    
+    char name[] = "basilisco";
+    int space = 1; //space for staircase
+    
+    for (int letter = 0; letter < strlen(name); letter++) { /*strlen para og bisag mag usab ang
+                                    pangan sa array sakto gihapon ang format is print */
+    
+        printf("%c\n", name[letter]); //gi print ang ngan by index
+        
+            for( int distance = 0; distance < space; distance++){ //space para mahimong murag staircase
+                printf("  ");
+            }
+        space++;    
+    }
+}
+
+void printLetter( char letter[5][6], int spaces) {  //print ang mga letters gamit ang pattern aning loop
+    for (int row = 0; row < 5; row++) {  
+        for (int col = 0; col < spaces; col++) {  
+            printf(" ");  
+        }
+        printf("%s\n", letter[row]);  
+    }
+}
+
+int main() {  
+    char B[5][6] = { "**** ", "*   *", "**** ", "*   *", "**** " };  
+    char A[5][6] = { "  *  ", " * * ", "*****", "*   *", "*   *" };  
+    char S[5][6] = { "*****", "*    ", "*****", "    *", "*****" };  
+    char I[5][6] = { "*****", "  *  ", "  *  ", "  *  ", "*****" };  
+    char L[5][6] = { "*    ", "*    ", "*    ", "*    ", "*****" };  
+    char C[5][6] = { "*****", "*    ", "*    ", "*    ", "*****" };  
+    char O[5][6] = { "*****", "*   *", "*   *", "*   *", "*****" };  
+
+    name();
+    
+    printf("\n\n");
+    printLetter(B, 0);
+    printf("\n");
+    printLetter(A, 3);
+    printf("\n");
+    printLetter(S, 6);
+    printf("\n");
+    printLetter(I, 9);
+    printf("\n");
+    printLetter(L, 12);
+    printf("\n");
+    printLetter(I, 15);
+    printf("\n");
+    printLetter(S, 18);
+    printf("\n");
+    printLetter(C, 21);
+    printf("\n");
+    printLetter(O, 24);
+    printf("\n");
+    return 0;
+}
