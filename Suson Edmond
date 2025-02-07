@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+void printPattern() {
+    
+    printf("* * * * *\n");
+    printf("*\n");
+    printf("* * * * *\n");
+    printf("        *\n");
+    printf("* * * * *\n");
+
+    printf("        *       *\n");
+    printf("        *       *\n");
+    printf("        *       *\n");
+    printf("        *       *\n");
+    printf("        * * * * * \n");
+
+   
+    printf("                * * * * *\n");
+    printf("                *\n");
+    printf("                * * * * *\n");
+    printf("                        *\n");
+    printf("                * * * * *\n");
+  
+ 
+    printf("                        * * * * *\n");
+    printf("                        *       *\n");
+    printf("                        *       *\n");
+    printf("                        *       *\n");
+    printf("                        * * * * *\n");
+
+ 
+    printf("                               *       *\n");
+    printf("                               * *     *\n");
+    printf("                               *   *   *\n");
+    printf("                               *     * *\n");
+    printf("                               *       *\n");
+}
+
+int main() {
+    
+    printPattern();
+    return 0;
+}
+    
