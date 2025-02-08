@@ -1,0 +1,68 @@
+#include <stdio.h>
+
+void print_D(int offset) {
+    for (int row = 0; row < 7; row++) {
+         printf("%*s", offset, ""); // Apply offset
+        for (int col = 0; col < 7; col++) {
+            if (col == 0 || (row == 0 && col != 6) || (row == 6 && col != 6) || (col == 6 && row != 0 && row != 6))
+                printf("*");
+            else
+                printf(" ");
+        }
+        printf("\n");
+    }
+}
+
+void print_E(int offset) {
+    for (int row = 0; row < 7; row++) {
+        printf("%*s", offset, "");
+        for (int col = 0; col < 7; col++) {
+            if (col == 0 || row == 0 || row == 3 || row == 6)
+                printf("*");
+            else
+                printf(" ");
+        }
+        printf("\n");
+    }
+}
+
+void print_S(int offset) {
+    for (int row = 0; row < 7; row++) {
+        printf("%*s", offset, "");
+        for (int col = 0; col < 7; col++) {
+            if ((row == 0 && col != 0) || (row == 3) || (row == 6 && col != 6) ||
+                (col == 0 && row > 0 && row < 3) || (col == 6 && row > 3 && row < 6))
+                printf("*");
+            else
+                printf(" ");
+        }
+        printf("\n");
+    }
+}
+
+void print_I(int offset) {
+    for (int row = 0; row < 7; row++) {
+        printf("%*s", offset, "");
+        for (int col = 0; col < 7; col++) {
+            if (row == 0 || row == 6 || col == 3)
+                printf("*");
+            else
+                printf(" ");
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    void (*letters[])(int) = { print_D, print_E, print_S, print_I };
+    int offset = 0;
+
+    for (int row = 0; row < 4; row++) {
+        letters[row](offset);
+        offset += 10;  // Adjust spacing between letters
+        printf("\n");
+    }
+
+    return 0;
+}
+    
