@@ -1,1 +1,86 @@
+#include <stdio.h>
 
+int main() {
+    // Define the slant offset for each letter
+    int offset = 0;
+
+    // Patterns for each letter as arrays of strings
+    char *J[] = {
+     "     * ",    
+     "     * ",
+     "     * ",
+     " *   * ",
+     " *   * ",
+     " *   * ",
+     " * * * "
+    };
+
+    char *O[] = {
+        " *** ",
+        "*   *",
+        "*   *",
+        "*   *",
+        "*   *",
+        " *** "
+    };
+
+    char *D[] = {
+        "**** ",
+        "*   *",
+        "*   *",
+        "*   *",
+        "*   *",
+        "****"
+    };
+
+    char *E[] = {
+        "**** ",
+        "*    ",
+        "**** ",
+        "*    ",
+        "**** "
+    };
+
+    // Print the letter J
+    for (int row = 0; row < 7; row++) {
+        // Print leading spaces for the slant
+        for (int space = 0; space < offset; space++) {
+            printf(" ");
+        }
+        printf("%s\n", J[row]);
+    }
+    offset += 3;  // Increase space for the next letter
+
+    
+    for (int row = 0; row < 6; row++) {
+        
+        for (int space = 0; space < offset; space++) {
+            printf(" ");
+        }
+        printf("%s\n", O[row]);
+    }
+    offset += 3;  
+
+    
+    for (int row = 0; row < 6; row++) {
+        
+        for (int space = 0; space < offset; space++) {
+            printf(" ");
+        }
+        printf("%s\n", D[row]);
+    }
+    offset += 3;  
+
+    
+    for (int row = 0; row < 5; row++) {
+        
+        for (int space = 0; space < offset; space++) {
+            printf(" ");
+        }
+        printf("%s\n", E[row]);
+    }
+    
+
+
+    return 0;
+}
