@@ -1,0 +1,81 @@
+#include <stdio.h>
+
+void print_C(int indent) {
+    for (int rows = 0; rows < 5; rows++) {
+        for (int columns = 0; columns < indent; columns++) {
+            printf(" "); // Leading spaces 
+        }
+
+        if (rows == 0 || rows == 4) {
+            printf("****");
+        } else {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+
+void print_A(int indent) {
+    for (int rows = 0; rows < 5; rows++) {
+        for (int columns = 0; columns < 5; columns++) {
+            printf(" "); // Leading spaces 
+        }
+
+        if (rows == 0 ) {
+            printf("  *  ");
+        } else if (rows == 2) {
+            printf("*****");
+        } else {
+            printf("*   *");
+        }
+        printf("\n");
+    }
+}
+
+void print_N(int indent) {
+    for (int rows = 0; rows < 5; rows++) {
+        for (int columns = 0; columns < indent; columns++) {
+            printf(" "); // Leading spaces 
+        }
+
+        printf("*"); // Left vertical bar of N
+
+        for (int columns = 0; columns < 5; columns++) {
+            if (columns == rows) {
+                printf("*"); // Diagonal line of N
+            } else {
+                printf(" ");
+            }
+        }
+
+        printf("*"); // Right vertical bar of N
+        printf("\n");
+    }
+}
+void print_E(int indent) {
+    for (int rows = 0; rows < 5; rows++) {
+        for (int columns = 0; columns < indent; columns++) {
+            printf(" "); // Leading spaces for indentation
+        }
+
+        if (rows == 0 || rows == 2 || rows == 4) {
+            printf("*****");
+        } else {
+            printf("*  ");
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    // I print ang "CANE" with increasing spaces
+    print_C(0);
+    printf("\n");
+    print_A(3);  // Indent for A is 3 spaces
+    printf("\n");
+    print_N(6);  // Indent for N is 6 spaces
+    printf("\n");
+    print_E(9);  // Indent for E is 9 spaces
+    
+    return 0;
+}
