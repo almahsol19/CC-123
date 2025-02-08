@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <string.h>
+
+void name() {
+    char name[] = "dalig";
+    int space = 1; // Space for staircase
+    
+    for (int i = 0; i < strlen(name); i++) { 
+        printf("%c\n", name[i]); 
+        
+        for (int j = 0; j < space; j++) { // Space for staircase effect
+            printf("  ");
+        }
+        space++;    
+    }
+}
+
+void printLetter(char letter[5][6], int spaces) {  
+    for (int row = 0; row < 5; row++) {  
+        for (int col = 0; col < spaces; col++) {  
+            printf(" ");  
+        }
+        printf("%s\n", letter[row]);  
+    }
+}
+
+int main() {  
+    char D[5][6] = { "**** ", "*   *", "*   *", "*   *", "**** " };  
+    char A[5][6] = { "  *  ", " * * ", "*****", "*   *", "*   *" };  
+    char L[5][6] = { "*    ", "*    ", "*    ", "*    ", "*****" };  
+    char I[5][6] = { "*****", "  *  ", "  *  ", "  *  ", "*****" };  
+    char G[5][6] = { "*****", "*    ", "*  **", "*   *", "*****" };  
+
+    name();
+    
+    printf("\n\n");
+    printLetter(D, 0);
+    printf("\n");
+    printLetter(A, 5);
+    printf("\n");
+    printLetter(L, 10);
+    printf("\n");
+    printLetter(I, 15);
+    printf("\n");
+    printLetter(G, 20);
+    printf("\n");
+    
+
+    return 0;
+}
