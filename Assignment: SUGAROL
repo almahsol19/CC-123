@@ -5,7 +5,7 @@ int row, col;
 
     for (row = 0; row < 5; row++) {
         for (col = 0; col < 5; col++) {
-            if (row == 0 || row == 2 || row == 4|| (row > 0 && row <2&& col ==  0) || (row > 2&& row < 5 && col == 4)) {
+            if (row == 0 || row == 2 || row == 4|| (row == 1 && col ==  0) || (row == 3 && col == 4)) {
                 printf("*");
             } else {
                 printf(" ");
@@ -17,7 +17,7 @@ int row, col;
     for (row = 0; row < 5; row++) {
         printf("\t" );
         for (col = 0; col < 5; col++) {
-            if (col == 0 || col == 4 || (row == 4 && col > 0 && col < 4)) {
+            if (col == 0 || col == 4 || (row == 4 || row == 4)) {
                 printf("*");
             } else {
                 printf(" ");
@@ -29,7 +29,7 @@ int row, col;
   for(row=0;row<5;row++) {
         printf("\t\t");
         for(col=0;col<5;col++) {
-            if((row == 0 && (col != 0)) || (row == 1 && (col == 0)) || (row == 2 && (col != 1)) || (row == 3 && (col == 0 || col == 4)) || (row == 4 && (col != 0 && col!= 4)) || row == 4 && col == 4)
+            if((row == 0 && (col >= 1)) || (col == 0 &&  row >=1) || (row == 2 && (col >= 2)) || (col== 4 && row >= 2) || row== 4)
             printf("*");
             else printf(" ");
         }
@@ -39,7 +39,7 @@ int row, col;
     for (row = 0; row < 5; row++) {
         printf("\t\t\t*");
         for (col = 1; col < 5; col++) {
-            if (row == 0 || row == 2|| col== 4|| col == 4) {
+            if (row == 0 || row == 2|| col== 0|| col == 4) {
                 printf("*");
             } else {
                 printf(" "); 
@@ -49,3 +49,4 @@ int row, col;
     }
   return 0;
   }
+  
