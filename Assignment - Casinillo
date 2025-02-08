@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+int main() {
+    
+    int rows, columns;
+    for (rows = 0; rows < 5; rows++) {
+        for (columns = 0; columns < 5; columns++) {
+            if (rows == 0 || rows == 4 || columns == 0) {
+                printf("* ");
+            } else {
+                printf("  ");
+            }
+        }
+        printf("\n");
+    }
+    printf("\n");
+
+    
+    for (rows = 0; rows < 5; rows++) {
+        printf("\t ");
+        for (columns = 0; columns < 5; columns++) {
+            if (rows == 0 || rows == 2 || columns == 0 || columns == 4) {
+                printf("* ");
+            } else {
+                printf("  ");
+            }
+        }
+        printf("\n");
+    }
+    printf("\n");
+    
+    for (rows = 0; rows < 5; rows++) {
+        printf("\t\t ");
+        for (columns = 0; columns < 5; columns++) {
+            if (rows == 0 || rows == 2 || rows == 4 || (rows == 1 && columns == 0) || (rows == 3 && columns == 4)) {
+                printf("* ");
+            } else {
+                printf("  ");
+            }
+        }
+        printf("\n");
+    }
+    printf("\n");
+
+    
+    for (rows = 0; rows < 5; rows++) {
+        printf("\t\t\t ");
+        for (columns = 0; columns < 5; columns++) {
+            if (rows == 0 || rows == 4 || columns == 2) {
+                printf("* ");
+            } else {
+                printf("  ");
+            }
+        }
+        printf("\n");
+    }
+    printf("\n");
+
+    return 0;
+}
