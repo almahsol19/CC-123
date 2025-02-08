@@ -1,0 +1,86 @@
+#include <stdio.h>
+
+int main() {
+    // for slant offset for each letter
+    int offset = 0;
+
+    // Patterns for each letter as arrays of strings
+    char *C[] = {
+        " *** ",
+        "*     ",
+        "*     ",
+        "*     ",
+        " *** "
+    };
+
+    char *A[] = {
+        "  *  ",
+        " * * ",
+        "*   *",
+        "*****",
+        "*   *"
+    };
+
+    char *N[] = {
+        "*   *",
+        "**  *",
+        "* * *",
+        "*  **",
+        "*   *"
+    };
+
+    char *E[] = {
+        "*****",
+        "*    ",
+        "**** ",
+        "*    ",
+        "*****"
+    };
+
+    // Print the letter C
+    for (int row = 0; row < 5; row++) {
+        for (int space = 0; space < offset; space++) {
+            printf(" ");
+        }
+        printf("%s\n", C[row]);
+    }
+    offset += 4;  // Increase space for the next letter
+
+    // Print the letter A
+    for (int row = 0; row < 5; row++) {
+        for (int space = 0; space < offset; space++) {
+            printf(" ");
+        }
+        printf("%s\n", A[row]);
+    }
+    offset += 4;  // Increase space for the next letter
+
+    // Print the letter N
+    for (int row = 0; row < 5; row++) {
+        for (int space = 0; space < offset; space++) {
+            printf(" ");
+        }
+        printf("%s\n", N[row]);
+    }
+    offset += 4;  // Increase space for the next letter
+
+    // Print the letter E
+    for (int row = 0; row < 5; row++) {
+        for (int space = 0; space < offset; space++) {
+            printf(" ");
+        }
+        printf("%s\n", E[row]);
+    }
+    offset += 4;  // Increase space for the next letter
+
+    // Print the letter N again
+    for (int row = 0; row < 5; row++) {
+        for (int space = 0; space < offset; space++) {
+            printf(" ");
+        }
+        printf("%s\n", N[row]);
+    }
+
+    return 0;
+}
+    
