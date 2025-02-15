@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
     int pin = 1234, enteredPin, attempts;
-    double balance = 1000.0; // Initial balance
+    double balance = 100.0; // Initial balance
     double deposit, withdraw;
     int choice;
 
