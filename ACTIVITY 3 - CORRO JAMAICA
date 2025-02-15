@@ -1,0 +1,100 @@
+#include <iostream>
+#include <map>
+#include <string>
+using namespace std;
+
+class ATM {
+private:
+    map<string, pair<int, double>> accounts;  // Para ni mabutang ang PIN ug balance
+
+public:
+    ATM() { // ga initialize diri para sa mga account number ug ilang balance ug pin
+        
+        accounts["0112233"] = make_pair(1002, 100015.0);   // Account 0112233 with PIN 1234 and balance ₱100015.0
+        accounts["001122333"] = make_pair(1005, 1000.0);    // Account 1005 with PIN 5678 and balance ₱1000.0
+        accounts["456612"] = make_pair(1006, 1500.0);      // Account 456612 with PIN 9876 and balance ₱1500.0
+    }
+
+    // Sa diri Nga function kay ga sa combine sa tanan operations (deposit, withdraw, balance check)
+    void performOperation(const string& accountNumber, int enteredPIN) {
+        int choice;
+        double amount;
+
+        // Ga check if correct ba ang mga acc number and pin
+        if (accounts.find(accountNumber) != accounts.end() && accounts[accountNumber].first == enteredPIN) {
+            do {
+                // Display the ATM menu
+                cout << "\nATM Menu:" << endl;
+                cout << "1. Check Balance" << endl;
+                cout << "2. Deposit Money" << endl;
+                cout << "3. Withdraw Money" << endl;
+                cout << "4. Exit" << endl;
+                cout << "Enter your choice: ";
+                cin >> choice;
+                
+                //Ga use switch to check unsa ila choices and what operation gamiton
+                switch (choice) {
+                    case 1:
+                        cout << "Your balance is: ₱" << accounts[accountNumber].second << endl;
+                        break;
+
+                    case 2:
+                        cout << "Enter amount to deposit: ₱";
+                        cin >> amount;
+                        if (amount > 0) {
+                            accounts[accountNumber].second += amount;
+                            cout << "₱" << amount << " has been deposited successfully." << endl;
+                            cout << "Your new balance is: ₱" << accounts[accountNumber].second << endl;
+                        } else {
+                            cout << "Please enter a valid amount." << endl;
+                        }
+                        break;
+
+                    case 3:
+                        cout << "Enter amount to withdraw: ₱";
+                        cin >> amount;
+                        if (amount > 0 && amount <= accounts[accountNumber].second) {
+                            accounts[accountNumber].second -= amount;
+                            cout << "₱" << amount << " has been withdrawn successfully." << endl;
+                            cout << "Your new balance is: ₱" << accounts[accountNumber].second << endl;
+                        } else if (amount > accounts[accountNumber].second) {
+                            cout << "Insufficient balance!" << endl;
+                        } else {
+                            cout << "Please enter a valid amount." << endl;
+                        }
+                        break;
+
+                    case 4:
+                        cout << "Exiting. Thank you for using the ATM!" << endl;
+                        break;
+
+                    default:
+                        cout << "Invalid choice. Please try again." << endl;
+                }
+            } while (choice != 4);
+        } else {
+            cout << "Incorrect account number or PIN. Exiting..." << endl;
+        }
+    }
+};
+
+int main() {
+    string accountNumber;
+    int enteredPIN;
+
+    // Create ATM object
+    ATM atm;
+
+    // Ask user to enter account number
+    cout << "Enter your account number: ";
+    cin >> accountNumber;
+
+    // Ask user to enter PIN
+    cout << "Enter your PIN: ";
+    cin >> enteredPIN;
+
+    // Call function to perform ATM operations
+    atm.performOperation(accountNumber, enteredPIN);
+
+    return 0;
+}
