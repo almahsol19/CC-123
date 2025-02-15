@@ -3,11 +3,11 @@ using namespace std;
 
 int main() {
     int choice;
-    double balance = 999999; // Initial balance
+    double balance = 999999; 
     double deposit, withdraw;
 
     do {
-        // Display menu
+        
         cout << "ATM Machine Menu:\n";
         cout << "1. Check Balance\n";
         cout << "2. Deposit Money\n";
@@ -47,7 +47,7 @@ int main() {
                 cout << "Invalid choice! Please try again." << endl;
         }
 
-        cout << endl; // New line for better readability
+        cout << endl; 
     } while (choice != 4);
 
     return 0;
