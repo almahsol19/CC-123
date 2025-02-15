@@ -30,7 +30,7 @@ int main() {
 
     do {
         // Display menu
-        cout << "\nATM Machine Menu:\n";
+        cout << "\nCyra's ATM Machine Menu:\n";
         cout << "1. Check Balance\n";
         cout << "2. Deposit Money\n";
         cout << "3. Withdraw Money\n";
