@@ -1,0 +1,68 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    string pin = "0218"; 
+    double balance = 10000.0;  
+    string enteredPin;
+    int choice;
+    
+    
+    cout << "Enter your PIN: ";
+    cin >> enteredPin;
+
+    // Check if the entered PIN is correct
+    if (enteredPin == pin) {
+        do {
+            // Display menu
+            cout << "\nATM Menu:\n";
+            cout << "1. Check Balance\n";
+            cout << "2. Deposit Money\n";
+            cout << "3. Withdraw Money\n";
+            cout << "4. Exit\n";
+            cout << "Choose an option: ";
+            cin >> choice;
+
+            // Perform actions based on the choice
+            if (choice == 1) {
+                cout << "Your current balance is: $" << balance << endl;
+            } 
+            else if (choice == 2) {
+                double deposit;
+                cout << "Enter amount to deposit: $";
+                cin >> deposit;
+                if (deposit > 0) {
+                    balance += deposit;
+                    cout << "$" << deposit << " deposited successfully.\n";
+                } else {
+                    cout << "Invalid deposit amount.\n";
+                }
+            } 
+            else if (choice == 3) {
+                double withdraw;
+                cout << "Enter amount to withdraw: $";
+                cin >> withdraw;
+                if (withdraw > 0 && withdraw <= balance) {
+                    balance -= withdraw;
+                    cout << "$" << withdraw << " withdrawn successfully.\n";
+                } else if (withdraw > balance) {
+                    cout << "Insufficient funds.\n";
+                } else {
+                    cout << "Invalid withdraw amount.\n";
+                }
+            }
+            else if (choice == 4) {
+                cout << "Thank you for using the ATM. Goodbye!\n";
+            } 
+            else {
+                cout << "Invalid option. Please try again.\n";
+            }
+        } while (choice != 4);  // Continue until the user chooses to exit
+    } else {
+        cout << "Incorrect PIN. Access denied.\n";
+    }
+
+    return 0;
+}
+    
