@@ -43,7 +43,7 @@ double transaction(string type) {
 
 int main() {
     if (!validate(CARD_NUMBER, "Enter card number: ") || !validate(PIN, "Enter PIN: ")) {
-        cout << "Too many incorrect attempts. Exiting.\n";
+        cout << "Suspicious number of attempts. Exiting.\n";
         return 0;
     }
     int choice;
