@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int enterNumOfStudent= 0;
+    printf("Enter the number of your student: ");
+    scanf("%d", &enterNumOfStudent);
+
+    for (int student = 0; student < enterNumOfStudent; student++) {
+        int quiz, assignment, exam;
+        printf("\nEnter scores for student %d:\n", student + 1);
+        printf("Quiz: ");
+        scanf("%d", &quiz);
+        printf("Assignment: ");
+        scanf("%d", &assignment);
+        printf("Exam: ");
+        scanf("%d", &exam);
+
+        int total = quiz + assignment + exam;  //Calculates the sum , assignment,, exam scores , and store in the integer variable 
+        float average = (float)total / 3; // Calculate the average score, converting total to float to avoid integer division.
+
+        // Determine the letter grade based on the average score.
+        char grade;
+        if (average >= 90) grade = 'A';
+        else if (average >= 80) grade = 'B';
+        else if (average >= 70) grade = 'C';
+        else if (average >= 60) grade = 'D';
+        else grade = 'F';
+
+        printf("Your Average score is: %.2f\n", average);
+        printf("Your Grade is: %c\n", grade);
+    }
+    return 0;
+}

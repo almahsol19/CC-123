@@ -1,0 +1,109 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double savings_balance = 1000.0;
+    double current_balance = 1000.0;
+    int pin = 1234;
+    double daily_withdrawal = 0.0;
+    const double DAILY_LIMIT = 500.0;
+    int entered_pin;
+    int choice;
+    char another_transaction;
+
+    cout << "Enter your PIN: ";
+    cin >> entered_pin;
+    if (entered_pin != pin) {
+        cout << "Incorrect PIN. Please try again." << endl;
+        return 0;
+    }
+
+    do {
+        do {
+            cout << "\nATM Menu:\n";
+            cout << "1. Balance Inquiry\n";
+            cout << "2. Withdraw Money\n";
+            cout << "3. Change PIN\n";
+            cout << "4. Exit\n";
+            cout << "Enter your choice: ";
+            cin >> choice;
+
+            if (choice == 1) {
+                int account_choice;
+                cout << "Select account type to check balance: 1. Savings 2. Current\n";
+                cout << "Enter choice: ";
+                cin >> account_choice;
+                
+                if (account_choice == 1) {
+                    cout << "Savings Account Balance: P" << savings_balance << endl;
+                } else if (account_choice == 2) {
+                    cout << "Current Account Balance: P" << current_balance << endl;
+                } else {
+                    cout << "Invalid account type selection." << endl;
+                }
+            } else if (choice == 2) {
+                int account_type;
+                double amount;
+                cout << "Select account type: 1. Savings 2. Current\n";
+                cout << "Enter choice: ";
+                cin >> account_type;
+                cout << "Enter withdrawal amount: ";
+                cin >> amount;
+
+                if (daily_withdrawal + amount > DAILY_LIMIT) {
+                    cout << "You have exceeded the daily withdrawal limit of $500." << endl;
+                } else {
+                    if (account_type == 1) {
+                        if (amount > 0 && amount <= savings_balance) {
+                            savings_balance -= amount;
+                            daily_withdrawal += amount;
+                            cout << "P" << amount << " withdrawn successfully from Savings Account." << endl;
+                        } else {
+                            cout << "Insufficient balance or invalid amount in Savings Account." << endl;
+                        }
+                    } else if (account_type == 2) {
+                        if (amount > 0 && amount <= current_balance) {
+                            current_balance -= amount;
+                            daily_withdrawal += amount;
+                            cout << "P" << amount << " withdrawn successfully from Current Account." << endl;
+                        } else {
+                            cout << "Insufficient balance or invalid amount in Current Account." << endl;
+                        }
+                    } else {
+                        cout << "Invalid account type selection." << endl;
+                    }
+                }
+            } else if (choice == 3) {
+                int old_pin, new_pin;
+                cout << "Enter your current PIN: ";
+                cin >> old_pin;
+                if (old_pin == pin) {
+                    cout << "Enter your new PIN: ";
+                    cin >> new_pin;
+                    pin = new_pin;
+                    cout << "PIN changed successfully." << endl;
+                } else {
+                    cout << "Incorrect PIN. Unable to change." << endl;
+                }
+            } else if (choice == 4) {
+                cout << "Thank you for using the ATM. Goodbye!\n";
+                return 0;
+            } else {
+                cout << "Invalid choice. Please try again." << endl;
+            }
+
+            cout << "\nWould you like to perform another transaction? (y/n): ";
+            cin >> another_transaction;
+            if (another_transaction == 'y' || another_transaction == 'Y') {
+                cout << "Enter your PIN: ";
+                cin >> entered_pin;
+                if (entered_pin != pin) {
+                    cout << "Incorrect PIN. Please try again." << endl;
+                    return 0;
+                }
+            }
+        } while (another_transaction == 'y' || another_transaction == 'Y');
+    } while (true);
+
+    return 0;
+}

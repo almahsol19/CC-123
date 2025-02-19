@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int Pin;
+    long int amountDeposit;
+    long int amountWithdraw;
+    long int totalBalance ; // Initializions
+    long int Balance;
+
+    cout << "Enter a PIN number: ";
+    cin >> Pin;
+
+    int Options[4] = {1, 2, 3, 4};
+    string OptionNames[4] = {"Withdrawal", "Deposit", "Balance Inquiry", "Log out"};
+
+    cout << "\nOptions:" << endl;
+    for (int option = 0; option < 4; option++) {
+        cout << option + 1 << ". " << OptionNames[option] << endl;
+    }
+
+    int chosenOption;
+
+    while (true) {
+        cout << "\nChoose an option: ";
+        cin >> chosenOption;
+
+        switch (chosenOption) {
+            case 1:
+                cout << "You chose Withdrawal." << endl;
+                cout << "Input an amount: ";
+                cin >> amountWithdraw;
+
+                if (amountWithdraw <= totalBalance) {
+                    totalBalance -= amountWithdraw;
+                    cout << "You successfully withdraw " << amountWithdraw << endl;
+                } else {
+                    cout << "Insufficient funds!" << endl;
+                }
+                break;
+
+            case 2:
+                cout << "You chose Deposit." << endl;
+                cout << "Input deposit amount: ";
+                cin >> amountDeposit;
+
+                totalBalance += amountDeposit; 
+                cout << "You successfully deposit " << amountDeposit << endl;
+                break;
+
+            case 3:
+                cout << "You chose Balance Inquiry." << endl;
+                cout << "Your total balance: " << totalBalance << endl;
+                break;
+                
+                case 4:
+                cout << "Log out successfuly." << endl;
+                return 0;
+                
+
+            default:
+                cout << "Invalid option." << endl;
+        }
+    }
+
+    return 0;
+}
+    

@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+//Main function 
+int main() {
+    //declaring variables 
+    int numberofstudents, students;
+    float assignment1, assignment2, exam1, exam2, quiz1, quiz2, quiz3, quiz4, totalscore;
+//Asking the user to input how many students he/she will compute
+    printf("Enter the number of students: ");
+    scanf("%d", &numberofstudents);
+   //Asking the scores i use for loop so that it can calculate multiple students 
+    for(students = 1; students <= numberofstudents; students++) {
+        printf("\nEnter scores for student %d:\n", students);
+
+        printf("Enter score for Quiz 1 (out of 30): ");
+        scanf("%f", &quiz1);
+
+        printf("Enter score for Quiz 2 (out of 30): ");
+        scanf("%f", &quiz2);
+
+        printf("Enter score for Quiz 3 (out of 30): ");
+        scanf("%f", &quiz3);
+
+        printf("Enter score for Quiz 4 (out of 30): ");
+        scanf("%f", &quiz4);
+
+        printf("Enter score for Assignment 1 (out of 50): ");
+        scanf("%f", &assignment1);
+
+        printf("Enter score for Assignment 2 (out of 50): ");
+        scanf("%f", &assignment2);
+
+        printf("Enter score for Midterm Exam (out of 100): ");
+        scanf("%f", &exam1);
+
+        printf("Enter score for Final Exam (out of 100): ");
+        scanf("%f", &exam2);
+//My Logical Calculation
+        float quiztotal = (quiz1 + quiz2 + quiz3 + quiz4) / 120 * 100;
+        float assignmenttotal = (assignment1 + assignment2) / 100 * 100;
+        float examtotal = (exam1 + exam2) / 200 * 100;
+
+        totalscore = (quiztotal * 0.40) + (assignmenttotal * 0.30) + (examtotal * 0.30);
+
+        printf("Student %d total score: %.2f\n", students, totalscore);
+        if(totalscore >= 90) {
+            printf("Student %d grade is A\n", students);
+        } else if(totalscore >= 80) {
+            printf("Student %d grade is B\n", students);
+        } else if(totalscore >= 70) {
+            printf("Student %d grade is C\n", students);
+        } else if(totalscore >= 60) {
+            printf("Student %d grade is D\n", students);
+        } else {
+            printf("Student %d grade is F\n", students);
+        }
+    }
+
+    return 0;
+}

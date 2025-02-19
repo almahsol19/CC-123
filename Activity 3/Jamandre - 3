@@ -1,0 +1,81 @@
+#include <iostream>
+using namespace std;
+
+class ATM {
+    private:
+        int balance;
+        int pin;
+
+    public:
+        ATM(int balance = 5000, int pin = 2486) {
+            this->balance = balance;
+            this->pin = pin;
+        }
+
+        void checkBalance() {
+            cout << "Your current balance is: " << balance << endl;
+        }
+
+        void withdraw(int amount) {
+            if (amount > balance) {
+                cout << "Insufficient funds!" << endl;
+            } else {
+                balance -= amount;
+                cout << "Withdrawal successful. New balance: " << balance << endl;
+            }
+        }
+
+        void deposit(int amount) {
+            balance += amount;
+            cout << "Deposit successful. New balance: " << balance << endl;
+        }
+
+        bool authenticate(int userPin) {
+            return userPin == pin;
+        }
+};
+
+int main() {
+    ATM atm(5000, 2486);
+    int choice, pin, amount;
+
+    cout << "Welcome to the ATM!" << endl;
+    cout << "Enter your PIN: ";
+    cin >> pin;
+
+    if (atm.authenticate(pin)) {
+        do {
+            cout << "\nChoose an option:" << endl;
+            cout << "1. Check balance" << endl;
+            cout << "2. Withdraw" << endl;
+            cout << "3. Deposit" << endl;
+            cout << "4. Exit" << endl;
+            cin >> choice;
+
+            switch (choice) {
+                case 1:
+                    atm.checkBalance();
+                    break;
+                case 2:
+                    cout << "Enter withdrawal amount: ";
+                    cin >> amount;
+                    atm.withdraw(amount);
+                    break;
+                case 3:
+                    cout << "Enter deposit amount: ";
+                    cin >> amount;
+                    atm.deposit(amount);
+                    break;
+                case 4:
+                    cout << "Thank you for using the ATM!" << endl;
+                    break;
+                default:
+                    cout << "Invalid choice. Please choose again." << endl;
+            }
+        } while (choice != 4);
+    } else {
+        cout << "Incorrect PIN. Please try again." << endl;
+    }
+
+    return 0;
+}

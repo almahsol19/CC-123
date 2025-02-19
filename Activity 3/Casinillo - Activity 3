@@ -1,0 +1,93 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    /
+    int pin = 1234;
+    int balance = 9000;
+    int enteredPin;
+    int choice;
+    int amount;
+    int recipientAccount;
+
+    
+    cout << "Enter your PIN: ";
+    cin >> enteredPin;
+
+    // Check if entered PIN matches the set PIN
+    if (enteredPin == pin) {
+        
+        do {
+            // Display the ATM menu
+            cout << "\nATM Menu:\n";
+            cout << "1. Withdraw\n";
+            cout << "2. Check Balance\n";
+            cout << "3. Transfer Money\n";
+            cout << "4. Deposit Money\n";
+            cout << "0. Exit\n";
+            cout << "Enter your choice: ";
+            cin >> choice;
+
+            // Handle user's choice
+            switch (choice) {
+                case 1:
+                    
+                    cout << "Enter amount to withdraw: ";
+                    cin >> amount;
+                    if (amount <= balance && amount > 0) {
+                        
+                        balance -= amount;
+                        cout << "Withdrawal successful. \nNew balance: " << balance << endl;
+                    } else {
+                        cout << "Insufficient funds.\n";
+                    }
+                    break;
+
+                case 2:
+                    
+                    cout << "Your balance is: " << balance << endl;
+                    break;
+
+                case 3:
+                    cout << "Enter recipient's account number: ";
+                    cin >> recipientAccount;
+                    cout << "Enter transfer amount: ";
+                    cin >> amount;
+                    if (amount <= balance && amount > 0) {
+                        // Update balance and display success message
+                        balance -= amount;
+                        cout << "Transfer successful. \nNew balance: " << balance << endl;
+                    } else {
+                        cout << "Insufficient funds.\n";
+                    }
+                    break;
+
+                case 4:
+                    // Deposit Money
+                    cout << "Enter amount to deposit: ";
+                    cin >> amount;
+                    if (amount > 0) {
+                        
+                        balance += amount;
+                        cout << "Deposit successful.\nNew balance: " << balance << endl;
+                    } else {
+                        cout << "Invalid deposit amount.\n";
+                    }
+                    break;
+
+                case 0:
+                    // Exit
+                    cout << "Thank you!\n";
+                    break;
+
+                default:
+                    cout << "Invalid choice.\n";
+            }
+        } while (choice != 0); // Loop until user chooses to exit
+    } else {
+        11 q
+        cout << "Incorrect PIN. Transaction cancelled.\n";
+    }
+
+    return 0;
+}

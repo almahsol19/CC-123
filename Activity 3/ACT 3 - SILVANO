@@ -1,0 +1,110 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string userPin;
+    string validPins[2] = {"0001", "0002"};
+    int balances[2] = {10000, 10000};
+    int accountIndex = -1;
+
+    //log-in
+    while (1) {
+        cout << "WELCOME TO BANKO DI CHAIR!" << endl;
+        cout << "Enter PIN: ";
+        cin >> userPin;
+
+        for (int i = 0; i < 2; i++) {
+            if (userPin == validPins[i]) {
+                accountIndex = i;
+                break;
+            }
+        }
+
+        if (accountIndex >= 0 && accountIndex < 2) {
+            break;
+        } else {
+            cout << "Invalid PIN!\n" << endl;
+        }
+    }
+
+    //main Menu
+    while (1) {
+        int choice;
+        int amount;
+        string recipientPin;
+        int recipientIndex = -1;
+        cout << "#" << endl;
+        cout << "1. Check Balance" << endl;
+        cout << "2. Withdraw" << endl;
+        cout << "3. Send Money" << endl;
+        cout << "4. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+        
+        if(cin.fail()){
+            cout << "You've entered a non-integer, program terminated." << endl;;
+            break;
+        }
+        
+        switch (choice) {
+            case 1:
+                cout << "Your balance is: $" << balances[accountIndex] << endl;
+                cout << "\n" << endl;
+                break;
+
+            case 2:
+                cout << "Enter amount to withdraw: $";
+                cin >> amount;
+
+                if (amount <= balances[accountIndex] && amount >= 100 && (amount % 20 == 0 || amount % 50 == 0)) {
+                    balances[accountIndex] -= amount;
+                    cout << "Withdrawal successful!" << endl;
+                    cout << "Your new balance is: $" << balances[accountIndex] << "\n";
+                    cout << "\n" << endl;
+                } else {
+                    cout << "Transaction can't be completed.\n" << endl;
+                }
+                break;
+
+            case 3:
+                cout << "Enter recipient's PIN: " << endl;
+                cin >> recipientPin;
+
+                for (int i = 0; i < 2; i++) {
+                    if (recipientPin == validPins[i]) {
+                        recipientIndex = i;
+                        break;
+                    }
+                }
+
+                if (recipientIndex != -1) {
+                    cout << "Enter amount to send: $" << endl;
+                    cin >> amount;
+
+                    if (amount <= balances[accountIndex] && amount >= 100 && (amount % 20 == 0 || amount % 50 == 0)) {
+                        balances[accountIndex] -= amount;
+                        balances[recipientIndex] += amount;
+                        cout << "Money sent successfully!" << endl;
+                        cout << "Your new balance is: $" << balances[accountIndex] << endl;
+                        cout << "\n" << endl;
+                    } else {
+                        cout << "Insufficient balance!" << endl;
+                        cout << "\n" << endl;
+                    }
+                } else {
+                    cout << "Transaction can't be completed." << endl;
+                    cout << "\n" << endl;
+                }
+                break;
+
+            case 4:
+                cout << "Thank you for using BANKO DI CHAIR!" << endl;
+                return 0;
+
+            default:
+                cout << "Invalid choice. Please try again.\n" << endl;    
+        }
+    }
+    return 0;
+}

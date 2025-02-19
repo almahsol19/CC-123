@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    int guess;
+    int Number = 10;
+
+    // Mangayo ug numero gikan sa user
+    printf("Guess the number: ");
+    if (scanf("%d", &guess) != 1) {
+        return main();
+    }
+
+    if (guess >= Number) {
+        printf("Too high\n");  // Dako ra kaayo  
+    } else if (guess < Number) {
+        printf("Too low\n");   // Gamay ra kaayo  
+    }
+
+    return 0;
+}

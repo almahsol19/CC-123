@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <time.h>
+
+char calculateGrade(float finalScore) {
+    if (finalScore >= 90 && finalScore <= 100) {
+        return 'A';
+    } else if (finalScore >= 80) {
+        return 'B';
+    } else if (finalScore >= 70) {
+        return 'C';
+    } else if (finalScore >= 60) {
+        return 'D';
+    } else {
+        return 'F';
+    }
+}
+
+int main() {
+
+printf("\t  Good Afternoon sir\n");
+      fflush(stdout);
+        sleep(1);
+    
+    printf("\t      Activity 2 \n");
+      fflush(stdout);
+        sleep(1);
+    
+    printf("\n\t  Activity loading ");
+      fflush(stdout);
+        sleep(1);
+    
+    printf("3 ");
+      fflush(stdout);
+        sleep(1);
+    
+    printf("2 ");
+      fflush(stdout);
+        sleep(1);
+    
+    printf("1\n\n");
+      fflush(stdout);
+        sleep(1);
+        
+    int enternumberOfStudents;
+    float quiz, assignment, exam, final;
+    char grade;
+
+    printf("Enter the number of your students: ");
+    scanf("%d", &enternumberOfStudents);
+
+    for (int student = 0; student < enternumberOfStudents; student++) {
+        printf("\nStudent %d:\n", student + 1);
+        
+        printf("Enter Quiz Score (0-100): ");
+        scanf("%f", &quiz);
+        printf("Enter Assignment Score (0-100): ");
+        scanf("%f", &assignment);
+        printf("Enter Exam Score (0-100): ");
+        scanf("%f", &exam);
+        
+        final = (quiz * 0.30) + (assignment * 0.30) + (exam * 0.40);
+        
+        grade = calculateGrade(final);
+        
+        printf("Final Score: %.2f", final);
+        printf(" \nLetter Grade: %c\n", grade);
+    }
+
+    return 0;
+}
+    

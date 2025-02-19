@@ -1,0 +1,106 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Function to validate card
+bool validateCard(int cardNumber) {
+    // Dummy validation: card number should be greater than 0
+    return cardNumber > 0;
+}
+
+// Function to validate PIN
+bool validatePIN(int pin) {
+    // Dummy PIN validation: pin should be a 4-digit number
+    return pin == 1234; // Assume correct PIN is 1234
+}
+
+// Function to display the menu and return the selected option
+int displayMenu() {
+    int choice;
+    cout << "ATM Menu:" << endl;
+    cout << "1. Check Balance" << endl;
+    cout << "2. Withdraw Cash" << endl;
+    cout << "3. Deposit Cash" << endl;
+    cout << "4. Quit" << endl;
+    cout << "Enter your choice: ";
+    cin >> choice;
+    return choice;
+}
+
+// Function to check balance
+void checkBalance(double balance) {
+    cout << "Your balance is: $" << balance << endl;
+}
+
+// Function to withdraw cash
+void withdrawCash(double& balance, double withdrawAmount) {
+    if (withdrawAmount <= balance) {
+        balance -= withdrawAmount;
+        cout << "Withdrawal successful! You withdrew $" << withdrawAmount << endl;
+    } else {
+        cout << "Insufficient funds!" << endl;
+    }
+}
+
+// Function to deposit cash
+void depositCash(double& balance, double depositAmount) {
+    balance += depositAmount;
+    cout << "Deposit successful! You deposited $" << depositAmount << endl;
+}
+
+int main() {
+    int cardNumber, pin;
+    double balance = 1000.0;  // Initial balance
+    double amount;
+    int choice;
+
+    // Step 1: Insert card
+    cout << "Please insert your card (enter card number): ";
+    cin >> cardNumber;
+
+    // Step 2: Validate card
+    if (!validateCard(cardNumber)) {
+        cout << "Invalid card!" << endl;
+        return 0; // Exit the program if card is invalid
+    }
+
+    // Step 3: Enter PIN
+    cout << "Please enter your PIN: ";
+    cin >> pin;
+
+    // Step 4: Validate PIN
+    if (!validatePIN(pin)) {
+        cout << "Invalid PIN!" << endl;
+        return 0; // Exit the program if PIN is incorrect
+    }
+
+    // Step 5: Display Menu
+    do {
+        choice = displayMenu();
+
+        switch (choice) {
+            case 1: // Check Balance
+                checkBalance(balance);
+                break;
+            case 2: // Withdraw Cash
+                cout << "Enter the amount to withdraw: $";
+                cin >> amount;
+                withdrawCash(balance, amount);
+                break;
+            case 3: // Deposit Cash
+                cout << "Enter the amount to deposit: $";
+                cin >> amount;
+                depositCash(balance, amount);
+                break;
+            case 4: // Quit
+                cout << "Thank you for using the ATM. Goodbye!" << endl;
+                break;
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+        }
+
+    } while (choice != 4);  // Continue until user selects Quit
+
+    return 0;
+}

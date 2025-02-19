@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+int main() {
+    float quiz, assignment, exam, finalGrade;
+    char grade;
+    int enterNumberOfStudent = 0;
+
+    // Mangutana sa user kung pila ka estudyante ang i-compute  
+    printf("Enter the number of your student: ");
+    scanf("%d", &enterNumberOfStudent);
+
+    // Mag-loop base sa gidaghanon sa estudyante  
+    for (int student = 0; student != enterNumberOfStudent; student++) {
+        printf("\nStudent %d:\n",student + 1);
+        
+        // Mangayo sa score sa quiz  
+        printf("Enter Quiz Score (up to 100): ");
+        scanf("%f", &quiz);
+        
+        // Mangayo sa score sa assignment  
+        printf("Enter Assignment Score (up to 100): ");
+        scanf("%f", &assignment);
+        
+        // Mangayo sa score sa exam  
+        printf("Enter Exam Score (up to 100): ");
+        scanf("%f", &exam);
+
+        // Pag-compute sa final grade gamit ang gibug-aton nga porsyento  
+        finalGrade = (quiz * 0.20) + (assignment * 0.30) + (exam * 0.50);
+
+        // Pag determine sa letra nga grado base sa final grade  
+        if (finalGrade >= 90) {
+            grade = 'A';
+        } else if (finalGrade >= 80) {
+            grade = 'B';
+        } else if (finalGrade >= 70) {
+            grade = 'C';
+        } else if (finalGrade >= 60) {
+            grade = 'D';
+        } else {
+            grade = 'F';
+        }
+
+        // Pagpakita sa final grade ug letra nga grado  
+        printf("Final Grade: %.2f",finalGrade);
+        printf("\nGrade: %c",grade);
+    }
+
+    return 0;
+}

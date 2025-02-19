@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int secretNumber = 64; //Variable and value
+    int guess;
+    int attempts = 0;
+
+    printf("Guess the number from 1 to 100\n"); //instruction statement
+
+    do {
+    printf("Enter your guess: "); //asking user an input
+    if (scanf("%d", &guess)!= 1){//to avoid character
+        printf("Inavlid input! Enter a valid number: \n");
+        while (getchar() != '\n');
+        continue;
+    }
+    if (guess < 1 || guess > 100) { //Check if the guess is outside the valid input
+        printf("Invalid input! Try again.\n"); //Inform the user about invalid input
+        } else {
+        attempts++; //Increment attempts
+
+        if (guess > secretNumber) {//if the guess is to high
+            printf("Too high! Try again.\n");
+        } else if (guess < secretNumber) {//if the guess is to low
+            printf("Too low! Try again.\n");
+        } else {//if the guest is correct
+            printf("Congratulations! You guessed the number in %d attempts.\n", attempts);
+    }
+ }
+
+    } while (guess != secretNumber); //Keep looping until the user guess the right number
+
+    return 0;

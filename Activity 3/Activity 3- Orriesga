@@ -1,0 +1,64 @@
+#include<iostream>
+#include<cstdlib>
+using namespace std;
+
+int main() {
+    int pin;
+    int password = 123;
+    int count = 0;
+    int entry;
+    double Deposit = 0.0;
+    double Balance = 0.0;
+    bool isTrue = true;
+    
+    do {
+        cout << "Enter your pin:\n";
+        cin >> pin;
+
+        if(pin == password) {
+            do {
+                cout << "Option\n";
+                cout << "1. Deposit\n";
+                cout << "2. Withdraw\n";
+                cout << "3. Balance\n";
+                cout << "4. Exit\n";
+                cin >> entry;
+                
+                switch(entry) {
+                    case 1:
+                        cout << "Deposit\n";
+                        cin >> Deposit;
+                        Balance = Balance + Deposit;
+                        break;
+                    case 2:
+                        cout << "Withdraw\n";
+                        double Withdraw;
+                        cin >> Withdraw;
+                        Balance = Balance - Withdraw;
+                        break;
+                    case 3:
+                        cout << "Current Balance: " << Balance << endl;
+                        break;
+                    case 4:
+                        isTrue = false;
+                        break;
+                    default:
+                        cout << "Invalid option!\n";
+                        break;
+                }
+            } while(isTrue != false); // Loop until the user exits
+            
+        } else {
+            count++;
+            if(count == 3) {
+                isTrue = false;
+                cout << "Too many wrong attempts. Exiting.\n";
+            } else {
+                cout << "Wrong pin. Try again.\n";
+            }
+        }
+    } while(isTrue != false); // Continue asking for pin until the program exits
+
+    return 0;
+}
+    
