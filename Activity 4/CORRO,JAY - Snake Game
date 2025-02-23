@@ -1,0 +1,120 @@
+#include <iostream>
+#include <termios.h>
+#include <unistd.h>
+#include <vector>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+const int GRID_WIDTH = 20;
+const int GRID_HEIGHT = 17;
+bool isGameOver;
+int snakeHeadX, snakeHeadY, fruitX, fruitY, playerScore;
+vector<pair<int, int>> snakeBody;
+char currentDirection;
+
+char getKeyPress() {
+    struct termios oldSettings, newSettings;
+    char key;
+    tcgetattr(STDIN_FILENO, &oldSettings);
+    newSettings = oldSettings;
+    newSettings.c_lflag &= ~(ICANON | ECHO);
+    tcsetattr(STDIN_FILENO, TCSANOW, &newSettings);
+    key = getchar();
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldSettings);
+    return key;
+}
+
+void initializeGame() {
+    isGameOver = false;
+    currentDirection = ' ';
+    snakeHeadX = GRID_WIDTH / 2;
+    snakeHeadY = GRID_HEIGHT / 2;
+    fruitX = rand() % GRID_WIDTH;
+    fruitY = rand() % GRID_HEIGHT;
+    playerScore = 0;
+    snakeBody.clear();
+    snakeBody.push_back({snakeHeadX, snakeHeadY});
+}
+
+void renderGame() {
+    system("clear");
+    for (int i = 0; i < GRID_WIDTH + 2; i++) cout << "#";
+    cout << endl;
+    
+    for (int row = 0; row < GRID_HEIGHT; row++) {
+        for (int col = 0; col < GRID_WIDTH; col++) {
+            if (col == 0) cout << "#";
+            
+            if (row == snakeHeadY && col == snakeHeadX) cout << "O";
+            else if (row == fruitY && col == fruitX) cout << "F";
+            else {
+                bool isSnakePart = false;
+                for (auto segment : snakeBody) {
+                    if (segment.first == col && segment.second == row) {
+                        cout << "o";
+                        isSnakePart = true;
+                    }
+                }
+                if (!isSnakePart) cout << " ";
+            }
+            
+            if (col == GRID_WIDTH - 1) cout << "#";
+        }
+        cout << endl;
+    }
+    
+    for (int i = 0; i < GRID_WIDTH + 2; i++) cout << "#";
+    cout << "\nScore: " << playerScore << endl;
+}
+
+void processInput() {
+    if (isatty(STDIN_FILENO)) {
+        char key = getKeyPress();
+        if (key == 'a' || key == 'A') currentDirection = 'L';
+        if (key == 'd' || key == 'D') currentDirection = 'R';
+        if (key == 'w' || key == 'W') currentDirection = 'U';
+        if (key == 's' || key == 'S') currentDirection = 'D';
+    }
+}
+
+void updateGameLogic() {
+    switch (currentDirection) {
+        case 'L': snakeHeadX--; break;
+        case 'R': snakeHeadX++; break;
+        case 'U': snakeHeadY--; break;
+        case 'D': snakeHeadY++; break;
+        default: return;
+    }
+    
+    if (snakeHeadX < 0 || snakeHeadX >= GRID_WIDTH || snakeHeadY < 0 || snakeHeadY >= GRID_HEIGHT) 
+        isGameOver = true;
+    
+    for (auto segment : snakeBody) {
+        if (segment.first == snakeHeadX && segment.second == snakeHeadY) 
+            isGameOver = true;
+    }
+    
+    snakeBody.insert(snakeBody.begin(), {snakeHeadX, snakeHeadY});
+    if (snakeHeadX == fruitX && snakeHeadY == fruitY) {
+        playerScore += 10;
+        fruitX = rand() % GRID_WIDTH;
+        fruitY = rand() % GRID_HEIGHT;
+    } else {
+        snakeBody.pop_back();
+    }
+}
+
+int main() {
+    srand(time(0));
+    initializeGame();
+    while (!isGameOver) {
+        renderGame();
+        processInput();
+        updateGameLogic();
+        usleep(100000);
+    }
+    cout << "Game Over!" << endl;
+    return 0;
+}

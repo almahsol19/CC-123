@@ -1,0 +1,117 @@
+#include <iostream>
+#include <cstdlib>
+#include <conio.h>
+#include <unistd.h> 
+
+using namespace std;
+bool gameOver;
+const int width = 20;
+const int height = 20;
+int x, y, Xfruit, Yfruit, score, Tail, TailX[100], TailY[100];
+enum eDirection { Stop = 0, Left, Right, Up, Down};
+eDirection dir;
+
+void set_up(){
+	gameOver = false;
+    dir = Stop;
+    x = width / 2;
+    y = height / 2;
+    Xfruit = rand() % width;
+    Yfruit = rand() % height;
+    score = 0;
+    Tail = 0; 
+}
+void draw(){
+	system("clear");
+    
+    for ( int i=0; i < width + 2; i++) 
+        cout << "Π";
+    cout << endl;
+    
+    for ( int i=0; i<height; i++){
+        for ( int j=0; j<width; j++){
+        
+            if ( j == 0) cout << "Π";
+            
+            if ( i == y && j == x) cout << "O";
+            else if ( i == Yfruit && j == Xfruit) cout << "♥";
+            else {
+                bool print = false;
+                for (int k = 0; k < Tail; k++) {
+                    if (TailX[k] == j && TailY[k] == i) {
+                        cout << "o";
+                        print = true;
+                    }
+                }
+                if (!print)
+                    cout << " ";
+            }
+            
+            if ( j == width-1) cout << "Π";
+        }
+        
+        cout << endl;
+    }
+    
+    for ( int i=0; i < width + 2; i++)
+        cout << "Π";
+    cout << endl;
+    cout << " Score: " << score << endl;
+}
+void logic(){
+    int prevX = TailX[0];
+    int prevY = TailY[0];
+    int prev2X, prev2Y;
+    TailX[0] = x;
+    TailY[0] = y;
+    for (int i = 1; i < Tail; i++) {
+        prev2X = TailX[i];
+        prev2Y = TailY[i];
+        TailX[i] = prevX;
+        TailY[i] = prevY;
+        prevX = prev2X;
+        prevY = prev2Y;
+    }
+
+	if (_kbhit()) {
+        switch (_getch()) {
+        case 'a': dir = Left; break;
+        case 'd': dir = Right; break;
+        case 'w': dir = Up; break;
+        case 's': dir = Down; break;
+        case 'x': gameOver = true; break;
+        }
+    }
+    
+    switch (dir) {
+    case Left: x--; break;
+    case Right: x++; break;
+    case Up: y--; break;
+    case Down: y++; break;
+    default: break;
+    }
+    
+    if ( x >= width || x < 0 || y >= height || y < 0){ 
+        gameOver = true;
+    }
+    
+    if (x == Xfruit && y == Yfruit) {
+        score += 10;
+        Xfruit = rand() % width;
+        Yfruit = rand() % height;
+        Tail++;
+    }
+}
+void input(){
+	
+}
+
+int main(){
+    set_up();
+    while(!gameOver){
+    	draw();
+    	input();
+        logic();
+        usleep(150000);
+    }
+}

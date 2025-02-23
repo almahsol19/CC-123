@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: white;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: gray;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      margin-top: 15px;
+    }
+
+    nav {
+      background: #333;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #4CAF50;
+    }
+
+    section {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .project {
+      background: white;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bryant Fuentes</h1>
+    <p>Student</p>
+    <img src="https://scontent.fceb3-1.fna.fbcdn.net/v/t39.30808-6/472235994_122244454952187371_8431899035068960535_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGM4ljJzUAB3laXaXPDfI7hvYPoquA8Hf29g-iq4Dwd_fo-KYz0Nq7Q_wRQpLyZNv0qM0vcqVntTzSJGEz6Xgu8&_nc_ohc=3YsP0r7xTPAQ7kNvgHlwyNE&_nc_oc=AdiR8jdWatZTPUlRWH2BKSBN5FpadY7z5345E320kbnywkqPVFVbSS0lMqZ2BWrEzEk&_nc_zt=23&_nc_ht=scontent.fceb3-1.fna&_nc_gid=APBFDEGS3G9XwJtmE1Trd7w&oh=00_AYCo1eiN-65oR3DXu4SB3-PeUS72XLjQ2I3OHU4xZmV--Q&oe=67BDBA0B"Profile Picture" class="profile-pic">
+  </header>
+
+  <nav>
+    <a href="https://www.google.com/search?q=just+wait+meaning&sca_esv=026fd76a3624c384&ei=ywe4Z9ewJ9Lf1e8PlcbLmQ0&oq=just+wait+mea&gs_lp=Egxnd3Mtd2l6LXNlcnAiDWp1c3Qgd2FpdCBtZWEqAggAMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgYQABgWGB5IhyNQAFiGGHABeAGQAQCYAXCgAdAIqgEDOS40uAEByAEA-AEBmAIOoAKPCagCFMICExAAGIAEGEMYtAIYigUY6gLYAQHCAh0QABiABBi0AhjUAxjlAhi3AxiKBRjqAhiKA9gBAcICEBAAGAMYtAIY6gIYjwHYAQLCAhAQLhgDGLQCGOoCGI8B2AECwgILEAAYgAQYkQIYigXCAgsQABiABBixAxiDAcICCBAAGIAEGLEDwgIOEAAYgAQYsQMYgwEYigXCAgoQABiABBhDGIoFwgITEC4YgAQYsQMYQxiDARjUAhiKBcICEBAuGIAEGNEDGEMYxwEYigXCAggQLhiABBixA8ICDRAuGIAEGLEDGEMYigXCAhAQABiABBiRAhiKBRhGGP8BwgIOEAAYgAQYkQIYsQMYigXCAgUQLhiABMICBxAAGIAEGArCAggQLhiABBjUAsICHBAAGIAEGJECGIoFGEYY_wEYlwUYjAUY3QTYAQLCAiMQLhiABBiXBRjcBBjeBBjgBBj0AxjxAxj1Axj2Axj3A9gBAsICChAAGIAEGEYY_wHCAhYQABiABBhGGP8BGJcFGIwFGN0E2AECmAMH8QUnXb0POro_dboGBAgBGAe6BgYIAhABGAqSBwQxMC40oAfqmgE&sclient=gws-wiz-serp">Projects</a>
+  </nav>
+
+  <section id="about">
+    <h2>About me</h2>
+    <p>Hello! I'm passionate about coding but lazy as fvck.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Assignment</h2>
+    
+    <div class="project">
+      <h3>Activity 1</h3>
+      <a href="https://www.google.com/search?q=dont+have+meaning&sca_esv=026fd76a3624c384&ei=TQq4Z_SWMp6yvr0P9OOu8AE&ved=0ahUKEwi08efZ_9OLAxUema8BHfSxCx4Q4dUDCBI&uact=5&oq=dont+have+meaning&gs_lp=Egxnd3Mtd2l6LXNlcnAiEWRvbnQgaGF2ZSBtZWFuaW5nMgcQABiABBgKMgcQABiABBgKMgcQABiABBgKMgcQABiABBgKMgcQABiABBgKMgcQABiABBgKMgcQABiABBgKMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeSJ8LUJkHWI8JcAF4AZABAJgBWqAB9QGqAQEzuAEDyAEA-AEBmAIEoAKDAsICChAAGLADGNYEGEeYAwCIBgGQBgiSBwE0oAeUGw&sclient=gws-wiz-serp">click here</a>
+    </div>
+    
+    <div class="project">
+      <h3>Activity 2</h3>
+      <a href="https://www.google.com/search?q=i+was+absent+that+day&sca_esv=026fd76a3624c384&ei=Ugq4Z9WZHoCNvr0Pr4nw2QQ&oq=im+absent+that+da&gs_lp=Egxnd3Mtd2l6LXNlcnAiEWltIGFic2VudCB0aGF0IGRhKgIIADIGEAAYFhgeMggQABgIGA0YHjIIEAAYCBgNGB4yCBAAGAgYDRgeMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCBAAGKIEGIkFSOY9UPoQWPEpcAJ4AZABAJgBrAGgAdIPqgEDOC45uAEByAEA-AEBmAIToAK9EKgCFMICFBAAGIAEGJECGLQCGIoFGOoC2AEBwgIdEAAYgAQYtAIY1AMY5QIYtwMYigUY6gIYigPYAQHCAhAQABgDGLQCGOoCGI8B2AECwgIQEC4YAxi0AhjqAhiPAdgBAsICCxAAGIAEGJECGIoFwgIQEAAYgAQYsQMYQxiDARiKBcICDhAAGIAEGLEDGIMBGIoFwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICEBAAGIAEGJECGIoFGEYY-QHCAgoQABiABBhDGIoFwgIMEAAYgAQYQxiKBRgKwgIqEAAYgAQYkQIYigUYRhj5ARiXBRiMBRjdBBhGGPkBGPQDGPUDGPYD2AECwgIIEC4YgAQYsQPCAg0QLhiABBixAxiDARgKwgIFEAAYgATCAgcQLhiABBgKwgIUEC4YgAQYsQMYxwEYmAUYmQUYrwHCAgYQABgDGArCAgcQABiABBgKwgIKEAAYgAQYsQMYCsICCxAuGIAEGMcBGK8BwgIIEAAYFhgKGB7CAggQLhgWGAoYHsICIxAuGBYYChgeGJcFGNwEGN4EGOAEGPQDGPEDGPUDGPYD2AECwgIIEAAYgAQYogSYAwjxBYNiTYICUr-4ugYECAEYB7oGBggCEAEYCpIHBDguMTGgB8-rAQ&sclient=gws-wiz-serp">click here</a>
+    </div>
+    
+    <div class="project">
+      <h3>Activity 3</h3>
+      <a href="https://github.com/almahsol19/CC-123/blob/main/Activity%203/Activity%203%20-%20Fuentes">click here </a>
+    </div>
+    
+    <div class="project">
+      <h3>Activity 4</h3>
+    </div>
+    
+    <div class="project">
+      <h3>Activity 5</h3>
+    </div>
+    
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: bryantfuentes44@gmail.com</p>
+    <p>Facebook: <a href="https://www.facebook.com/profile.php?id=61555621136645_blank">its_bryyyynttt</a></p>
+    <p>Contact No: +63 912084130 </a>
+  </section>
+</body>
+</html>

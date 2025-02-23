@@ -1,0 +1,134 @@
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <ctime>
+#include <unistd.h>  // For sleep() function
+
+const int width = 20;
+const int height = 17;
+int x, y, fruitX, fruitY, score;
+std::vector<int> tailX, tailY;
+int nTail;
+bool gameOver;
+enum eDirection { STOP = 0, LEFT, RIGHT, UP, DOWN };
+eDirection dir;
+
+void Setup() {
+    gameOver = false;
+    dir = STOP;
+    x = width / 2;
+    y = height / 2;
+    fruitX = rand() % width;
+    fruitY = rand() % height;
+    score = 0;
+}
+
+void Draw() {
+    system("clear"); // For Linux/Mac, use "cls" on Windows
+
+    for (int i = 0; i < width + 2; i++) std::cout << "#"; // top border
+    std::cout << std::endl;
+
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            if (j == 0) std::cout << "#"; // left border
+
+            if (i == y && j == x) {
+                std::cout << "O"; // snake head
+            } else if (i == fruitY && j == fruitX) {
+                std::cout << "F"; // fruit
+            } else {
+                bool printTail = false;
+                for (int k = 0; k < nTail; k++) {
+                    if (tailX[k] == j && tailY[k] == i) {
+                        std::cout << "o"; // snake body
+                        printTail = true;
+                    }
+                }
+                if (!printTail) std::cout << " ";
+            }
+
+            if (j == width - 1) std::cout << "#"; // right border
+        }
+        std::cout << std::endl;
+    }
+
+    for (int i = 0; i < width + 2; i++) std::cout << "#"; // bottom border
+    std::cout << std::endl;
+
+    std::cout << "Score: " << score << std::endl;
+}
+
+void Input() {
+    char current;
+    std::cin >> current;
+    if (current == 'a') dir = LEFT;
+    if (current == 'd') dir = RIGHT;
+    if (current == 'w') dir = UP;
+    if (current == 's') dir = DOWN;
+    if (current == 'x') gameOver = true;
+}
+
+void Logic() {
+    int prevX = tailX.empty() ? x : tailX[0];
+    int prevY = tailY.empty() ? y : tailY[0];
+    int prev2X, prev2Y;
+    if (!tailX.empty()) {
+        tailX[0] = x;
+        tailY[0] = y;
+    }
+
+    for (int i = 1; i < nTail; i++) {
+        prev2X = tailX[i];
+        prev2Y = tailY[i];
+        tailX[i] = prevX;
+        tailY[i] = prevY;
+        prevX = prev2X;
+        prevY = prev2Y;
+    }
+
+    // Move the snake
+    switch (dir) {
+        case LEFT: x--; break;
+        case RIGHT: x++; break;
+        case UP: y--; break;
+        case DOWN: y++; break;
+    }
+
+    // Wrap the snake around the screen
+    if (x >= width) x = 0; else if (x < 0) x = width - 1;
+    if (y >= height) y = 0; else if (y < 0) y = height - 1;
+
+    // Check if snake runs into itself
+    for (int i = 0; i < nTail; i++) {
+        if (tailX[i] == x && tailY[i] == y) {
+            gameOver = true;
+        }
+    }
+
+    // Check if snake eats fruit
+    if (x == fruitX && y == fruitY) {
+        score += 10;
+        fruitX = rand() % width;
+        fruitY = rand() % height;
+        nTail++;
+        tailX.push_back(prevX);
+        tailY.push_back(prevY);
+    }
+}
+
+int main() {
+    srand(time(0));  // Seed for random number generation
+
+    Setup();
+
+    while (!gameOver) {
+        Draw();
+        Input();
+        Logic();
+        usleep(100000);  // Sleep for 100ms, change to adjust game speed
+    }
+
+    std::cout << "Game Over! Final Score: " << score << std::endl;
+    return 0;
+}

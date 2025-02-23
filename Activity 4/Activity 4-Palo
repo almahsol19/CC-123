@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPortfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <style>
+        .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+    </style>
+    <header>
+        <div class="profile">
+            <img src="/image_01/image/IMG_9078.jpeg" alt="Profile Picture" class="profile-picture">
+            <h1>Jhon Paul Y. Palo</h1>
+        </div>
+    </header>
+
+    <nav>
+        <button type="button" class="activity">
+            <a href="activity1.html" target="_blank">Activity 1</a>
+        </button>
+        <button type="button" class="activity">
+            <a href="https://github.com/almahsol19/CC-123/blob/main/Activity%202/Act%202%20_%20Palo" target="_blank">Activity 2</a>
+        </button>
+        <button type="button" class="activity">
+            <a href="https://github.com/almahsol19/CC-123/blob/main/Activity%203/ACTIVITY%203%20-%20Palo" target="_blank">Activity 3</a>
+        </button>
+    </nav>
+
+    <section class="personal-info">
+        <h2>My Personal Information</h2>
+        <ul>
+            <li>
+                
+                <h3>Address: Purok Lilac, Brgy. Casili, Consolacion, Cebu</h3>
+            </li>
+            <li>
+                
+                <h3>Education: Currently enrolled in BSIT (Bachelor of Science in Information Technology) at Cebu Technological University Consolacion</h3>
+            </li>
+            <li>
+                
+                <h3>Phone: 09945358519</h3>
+            </li>
+            <li>
+                
+                <h3>ID number: 12230822</h3>
+            </li>
+            <li>
+              <h3> Email: jhonpalo58@gmail.com</h3>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>

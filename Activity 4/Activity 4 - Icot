@@ -1,0 +1,66 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+const int width = 10, height = 10;
+int x, y, foodX, foodY, score;
+char input;
+
+void Setup() {
+    srand(time(0));
+    x = width / 2;
+    y = height / 2;
+    foodX = rand() % width;
+    foodY = rand() % height;
+    score = 0;
+}
+
+void Draw() {
+    system("clear"); // Use "cls" on Windows
+
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            if (i == y && j == x)
+                cout << "S";  // Snake head
+            else if (i == foodY && j == foodX)
+                cout << "F";  // Food
+            else
+                cout << ".";
+        }
+        cout << endl;
+    }
+    cout << "Score: " << score << endl;
+}
+
+void Input() {
+    cout << "Move (w/a/s/d): ";
+    cin >> input;
+}
+
+void Logic() {
+    switch (input) {
+        case 'w': y--; break;
+        case 's': y++; break;
+        case 'a': x--; break;
+        case 'd': x++; break;
+        default: break;
+    }
+
+    if (x == foodX && y == foodY) {
+        score += 10;
+        foodX = rand() % width;
+        foodY = rand() % height;
+    }
+}
+
+int main() {
+    Setup();
+    while (true) {
+        Draw();
+        Input();
+        Logic();
+    }
+    return 0;
+}
