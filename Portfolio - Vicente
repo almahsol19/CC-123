@@ -1,0 +1,64 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPortfolio</title>
+    
+</head>
+<body>
+    <style>
+        .profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+    </style>
+    <header>
+        <div class="profile">
+            <img src="/rindel gwapo//IMG_2128.jpeg" alt="Profile Picture" class="profile-picture">
+            <h1>Rindel G. Vicente</h1>
+        </div>
+    </header>
+
+    <nav>
+        <button type="button" class="activity">
+            <a href="https://github.com/almahsol19/CC-123/blob/main/Activity%201/Act1-rindel18" target="_blank">Activity 1</a>
+        </button>
+        <button type="button" class="activity">
+            <a href="https://github.com/almahsol19/CC-123/blob/main/Activity%203/Activity%203%20Vicente" target="_blank">Activity 2</a>
+        </button>
+        <button type="button" class="activity">
+            <a href="" target="_blank">Activity 3</a>
+        </button>
+    </nav>
+
+    <section class="personal-info"> 
+        <h1 style="color: black">My Personal Information</h1>
+        <ul>
+            <li>
+                
+                <span>Address:Address:
+BRGY, SAC-SAC CONSOLACION, DEO RESIDENCE</span>
+            </li>
+            <li>
+                
+                <span>Education: Currently enrolled in BSIT (Bachelor of Science in Information Technology) at Cebu Technological University Consolacion</span>
+            </li>
+            <li>
+                
+                <span>Phone: 09488440204</span>
+            </li>
+            <li>
+                
+                <span>ID number: 12230846</span>
+            </li>
+            <li>
+              <span> Email:
+rindelgolesvicente7@gmail.com</span>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>
