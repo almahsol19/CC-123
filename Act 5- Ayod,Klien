@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int size;
+
+    
+    cout << "Enter the number of elements: ";
+    cin >> size;
+
+    
+    int nums[size];
+
+    cout << "Enter " << size << " numbers: ";
+    for (int i = 0; i < size; i++) {
+        cin >> nums[i];
+    }
+
+    int mostFrequent = nums[0];
+    int maxCount = 0;
+
+    for (int i = 0; i < size; i++) {
+        int count = 0;
+
+        for (int j = 0; j < size; j++) {
+            if (nums[i] == nums[j]) {
+                count++;
+            }
+        }
+
+        if (count > maxCount) {
+            maxCount = count;
+            mostFrequent = nums[i];
+        }
+    }
+    cout << "The most frequent number is: " << mostFrequent << endl;
+
+    return 0;
+}
+    
