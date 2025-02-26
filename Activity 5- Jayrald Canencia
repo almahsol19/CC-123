@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[] = {1, 2, 4, 5, 4, 6, 7, 4, 5, 4};  
+    int freq[10] = {0};
+
+    for (int num : arr) {
+        freq[num]++;
+    }
+    
+    freq[4] = 4;
+
+    cout << "The frequency is: " << freq[4] << endl;
+
+    return 0;
+}
