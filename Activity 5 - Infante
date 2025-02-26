@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int arr[] = {1, 2, 4, 5, 4, 6, 7, 4, 5};
+    int x = sizeof(arr) / sizeof(arr[0]);
+
+   
+    int max = 0;
+    int res;
+    for (int i = 0; i < x; i++) {
+        int cnt = 0;
+        for (int j = 0; j < x; j++) {
+            if (arr[i] == arr[j]) {
+                cnt++;
+        }
+        }
+        if (cnt > max) {
+            max = cnt;
+            res = arr[i];
+        }
+        }
+    cout << "The frequency is: " << res << endl;
+    return 0;
+}
