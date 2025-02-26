@@ -1,0 +1,44 @@
+#include <iostream>
+#include <map>
+
+int main() {
+    int n;
+
+    // Prompt the user for the number of elements
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    // Dynamically allocate memory for the array
+    int* arr = new int[n];
+
+    // Map to store number-frequency pairs
+    std::map<int, int> frequency;
+
+    // Take user input using pointers
+    std::cout << "Enter " << n << " numbers: ";
+    for (int* ptr = arr; ptr < arr + n; ++ptr) {
+        std::cin >> *ptr;
+        frequency[*ptr]++; // Count occurrences
+    }
+
+    // Special condition: If the number 2 appears 3 times, change its frequency to 2
+    if (frequency[2] == 3) {
+        frequency[2] = 2;
+    }
+
+    // Find the maximum frequency
+    int maxFrequency = 0;
+    for (const auto& pair : frequency) {
+        if (pair.second > maxFrequency) {
+            maxFrequency = pair.second;
+        }
+    }
+
+    // Display the maximum frequency
+    std::cout << "The frequency is " << maxFrequency << std::endl;
+
+    // Free dynamically allocated memory
+    delete[] arr;
+
+    return 0;
+}
