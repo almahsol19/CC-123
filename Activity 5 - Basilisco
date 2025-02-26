@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+
+int FIND_MODE(int size, int arr[size]){
+    int MaxCount = 0, frequent;
+    
+    for( int element=0; element<size-1; element++){ // nag kuha og usa ka element para i compare sa tanan Indexes
+        int count = 0;
+        
+        for( int compare=1; compare<size; compare++){ // ang katong element na gi kuha kay gi compare na sa tanan elements
+            if( arr[element] == arr[compare]){
+                count++; //e increment ang count if naay ka parihas ang element
+            }
+        }
+        
+        if( count > MaxCount ){ // mas dako ang count sa MaxCount i puli og store ang value sa count og sa current element
+            MaxCount = count;
+            frequent = arr[element];
+        }
+    }
+    
+    return frequent;
+}
+
+int main(){
+    
+    int Size;
+    
+    cout << "Enter How many element: " ;
+    cin >> Size;
+    int arr[Size]; // nag declare og array nya ang size depende sa gi input
+    
+    cout << "Enter the elements of the array: " << endl;
+    
+        for( int elements=0; elements<Size; elements++){ // diri na loop gi kuha ang mga elements, ang gi daghanon dependi sa input size
+            cin >> arr[elements];
+        }
+    
+    int result = FIND_MODE(Size, arr); // nag tawag og function para e solve asa ang most frequent number
+    
+    cout << "The most frequent number is: " << result << endl;
+    return 0;
+}
