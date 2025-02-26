@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector> 
+#include <map> // 
+
+using namespace std;
+
+int main() {
+    vector<int> array(5); //diri sir ga create kog vector nga variable named array nga naay size 5 para maka store siyag space para sa lima ka integers or whole number.
+    cout << "Enter 5 numbers: " << endl;
+
+    for (int number = 0; number < 5; number++) { //diri nga loopings para maka run kog kalima para ma kuha ang gi input
+        cin >> array[number]; 
+    }
+
+    map<int, int> frequency; //
+    int maxFrequency = 0; //nag create ko ani nga variable para maka track sa kung unsa nga number ang nag balik-balik or unsa nga number ang mas daghag frequency
+    int maxFrequencyNumber = -1; //nya diri para maka store sa number with the highest frequency
+
+    for (int number = 0; number < 5; number++) { 
+        frequency[array[number]]++;
+        if (frequency[array[number]] > maxFrequency) {
+            maxFrequency = frequency[array[number]];
+            maxFrequencyNumber = array[number];
+        }
+    }
+
+    cout << "The frequency is: " << maxFrequencyNumber << endl;
+    return 0;
+}
