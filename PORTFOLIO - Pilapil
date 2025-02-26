@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+    </header>
+
+    <section>
+        <h2>Profile</h2>
+        <img src="/storage/emulated/0/Download/5bb83b32-323e-4c03-9434-50c3717637f1.png" alt="Profile Picture" width="140">
+        <nav>
+        <button type="button" class="activity">
+            <a href="https://github.com/almahsol19/CC-123/blob/main/Activity%201/Activity%201%20-%20lowejay127" target="_blank">Activity 1</a>
+        </button>
+        <button type="button" class="activity">
+            <a href="https://github.com/almahsol19/CC-123/blob/main/Activity%202/Activity%202%20-%20Pilapil" target="_blank">Activity 2</a>
+        </button>
+        <button type="button" class="activity">
+            <a href="https://github.com/almahsol19/CC-123/blob/main/Activity%203/Activity%203%20-%20PILAPIL" target="_blank">Activity 3</a>
+        </button>
+            <button type="button" class="activity">
+            <a href="https://github.com/almahsol19/CC-123/blob/main/Activity%204/PILAPIL%20-%20SNAKE%20GAME%20ACT%20-%204" target="_blank">Activity 4</a>
+        </button>
+    </nav>
+        <p><strong>Name:</strong> lowejay pilapil</p>
+        <p><strong>Address:</strong> Cogon Catarman, Liloan, Cebu</p>
+        <p><strong>Contact Number:</strong> 639982257475
+        </p>
+        <p><strong>Email:</strong> lowejaypilapil@gmail.com</p>
+    </section>
+    
+
+    <footer>
+        <p>&copy; 2025 lowejay pilapil</p>
+    </footer>
+</body>
+</html>
