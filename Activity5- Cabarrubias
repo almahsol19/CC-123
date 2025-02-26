@@ -1,1 +1,33 @@
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+    int n;
+    
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    int* arr = new int[n]; 
+    map<int, int> frequency; 
+
+    cout << "Enter " << n << " numbers: ";
+    for (int i = 0; i < n; i++) {
+        cin >> *(arr + i);
+        frequency[*(arr + i)]++; 
+    }
+
+    int mostFrequent = 0, maxCount = 0;
+    for (auto it : frequency) {
+        if (it.second > maxCount) {
+            mostFrequent = it.first;
+            maxCount = it.second;
+        }
+    }
+
+    cout << "The most frequent number is: " << mostFrequent << " (appeared " << maxCount << " times)" << endl;
+
+    delete[] arr;
+    return 0;
+}
 
