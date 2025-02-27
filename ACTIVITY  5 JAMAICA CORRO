@@ -1,0 +1,42 @@
+#include <iostream>
+#include <unordered_map> //Serve as container to store the pairs
+#include <vector>
+#include <algorithm>
+
+int main() {
+    int numElements;
+    std::cout << "Enter the number of elements: "; //Getting the user input
+    std::cin >> numElements;
+
+    std::vector<int> numbers(numElements);
+    for (int i = 0; i < numElements; ++i) {
+        std::cout << "Enter number " << i + 1 << ": ";
+        std::cin >> numbers[i];
+    }
+
+    std::unordered_map<int, int> frequency;
+    for (int num : numbers) { // Loop and condition to check the frequency of the number
+        while (num != 0) {
+            int digit = num % 10;
+            frequency[digit]++;
+            num /= 10;
+        }
+    }
+
+    int maxFrequency = 0;
+    for (const auto& pair : frequency) {
+        maxFrequency = std::max(maxFrequency, pair.second);
+    }
+
+    std::cout << "The most frequent digits are: ";
+    bool first = true; // Para kung naa gani kaparehas ug frequency kay mo display sila
+    for (const auto& pair : frequency) {
+        if (pair.second == maxFrequency) {
+            std::cout << (first ? "" : ", ") << pair.first;
+            first = false;
+        }
+    }
+    
+    return 0;
+}
+    
