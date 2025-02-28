@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <map>
+
+using namespace std;
+
+int main() {
+    vector<int> array(5); 
+    cout << "Input 5 numbers:" << endl;
+
+    for (int num = 0; num < 5; num++) {
+        cin >> array[num]; 
+    }
+
+    map<int, int> freq;
+    int maxFreq = 0;
+    int maxFreqNumber = -1;
+
+    for (int num = 0; num < 5; num++) { 
+        freq[array[num]]++;
+        if (freq[array[num]] > maxFreq) {
+            maxFreq = freq[array[num]];
+            maxFreqNumber = array[num];
+        }
+    }
+
+    cout << "The frequency is: " << maxFreqNumber << endl;
+    return 0;
+}
