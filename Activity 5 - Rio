@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int Size;
+    
+    cout << "Enter How many elements: ";
+    cin >> Size;
+    int arr[Size];
+    
+    cout << "Enter the elements of the array: " << endl;
+    for (char i = 0; i < Size; i++) {
+        cin >> arr[i];
+    }
+
+    int MaxCount = 0, frequent;
+    
+    for (char i = 0; i < Size - 1; i++) {
+        int count = 0;
+        
+        for (char j = 1; j < Size; j++) {
+            if (arr[i] == arr[j]) {
+                count++;
+            }
+        }
+        
+        if (count > MaxCount) {
+            MaxCount = count;
+            frequent = arr[i];
+        }
+    }
+
+    cout << "The most frequent number is: " << frequent << endl;
+    return 0;
+}
