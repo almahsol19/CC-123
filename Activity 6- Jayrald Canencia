@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int scores[] = {100, 50, 20, 70}; 
+    int size = 4; 
+    int rankNumber = 1;
+
+    cout << "Enter " << size << " scores:\n";
+    for (int index = 0; index < size; index++) {
+        cin >> scores[index];
+    }
+
+    
+    for (int playerIndex1 = 0; playerIndex1 < size - 1; playerIndex1++) {
+        for (int playerIndex2 = playerIndex1 + 1; playerIndex2 < size; playerIndex2++) {
+            if (scores[playerIndex1] < scores[playerIndex2]) { 
+                int temp = scores[playerIndex1];
+                scores[playerIndex1] = scores[playerIndex2];
+                scores[playerIndex2] = temp;
+            }
+        }
+    }
+
+    
+    cout << "\n~Leaderboard~\n";
+    cout << "Rank " << rankNumber << ": " << scores[0] << endl;
+
+    for (int playerIndex = 1; playerIndex < size; playerIndex++) {
+        if (scores[playerIndex] != scores[playerIndex - 1]) { // iremove ang duplicate number
+            rankNumber++;
+            cout << "Rank " << rankNumber << ": " << scores[playerIndex] << endl;
+        }
+    }
+
+    return 0;
+}
