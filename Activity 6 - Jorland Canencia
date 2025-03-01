@@ -1,0 +1,49 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int players;
+    int scores[] = {10, 100, 75, 50};
+    int placements[] = {4, 1, 2, 3};
+    int maxPlayers = sizeof(scores) / sizeof(scores[0]);
+    
+
+    cout << "Input number of players (up to 4): ";
+    cin >> players;
+
+    if (players > maxPlayers) {
+        cout << "The maximum number of players is 4." << endl;
+        players = maxPlayers;
+    }
+
+    for (int number = 0; number < players; number++) {
+        cout << "Player " << placements[number] << ": ";
+        cout << "Input new score: ";
+        cin >> scores[number];
+    }
+
+    for (int i = 0; i < players - 1; i++) {
+        for (int j = 0; j < players - 1 - i; j++) {
+            if (scores[j] < scores[j + 1]) {
+               
+                int tempScore = scores[j];
+                scores[j] = scores[j + 1];
+                scores[j + 1] = tempScore;
+
+               
+                int tempPlacement = placements[j];
+                placements[j] = placements[j + 1];
+                placements[j + 1] = tempPlacement;
+            }
+        }
+    }
+
+    // Display the sorted results with rankings
+    cout << "Ranked from Highest to Lowest:" << endl;
+    for (int i = 0; i < players; i++) {
+        cout << "Rank " << i + 1 << ": Player " << placements[i] << " with score " << scores[i] << endl;
+    }
+
+    return 0;
+}
