@@ -1,0 +1,51 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int array[4] = {10, 40, 57, 80};
+    int ranks[4];
+
+    for (int i = 0; i < 4; i++) {
+        ranks[i] = 1;
+        for (int j = 0; j < 4; j++) {
+            if (array[i] < array[j]) {
+                ranks[i]++;
+            }
+        }
+    }
+
+    cout << "Previous ranks for the scores are: ";
+    for (int i = 0; i < 4; i++) {
+        cout << ranks[i] << " ";
+    }
+    cout << endl;
+
+    int newArray[4];
+    cout << "input 4 new scores: ";
+    for (int i = 0; i < 4; i++) {
+        cin >> newArray[i];
+    }
+    for (int i = 0; i < 4; i++) {
+        if (newArray[i] > array[i]) {
+            array[i] = newArray[i];
+        }
+    }
+
+    for (int i = 0; i < 4; i++) {
+        ranks[i] = 1;
+        for (int j = 0; j < 4; j++) {
+            if (array[i] < array[j]) {
+                ranks[i]++;
+            }
+        }
+    }
+
+    cout << "Updated version of ranks after replacing the lower scores are: ";
+    for (int i = 0; i < 4; i++) {
+        cout << ranks[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
