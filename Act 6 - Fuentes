@@ -1,0 +1,80 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+struct Player {
+    int score;
+    int originalIndex;
+    int placement;
+};
+
+bool comparePlayers(const Player &a, const Player &b) {
+    return a.score > b.score;
+}
+
+int main() {
+    vector<Player> leaderboard = {{10, 0, 0}, {100, 1, 0}, {75, 2, 0}, {50, 3, 0}};
+
+    cout << "Score array = ";
+    for (size_t i = 0; i < leaderboard.size(); i++) {
+        cout << leaderboard[i].score;
+        if (i != leaderboard.size() - 1) cout << ", ";
+    }
+    cout << endl;
+
+    vector<Player> sortedLeaderboard = leaderboard;
+    sort(sortedLeaderboard.begin(), sortedLeaderboard.end(), comparePlayers);
+
+    for (size_t i = 0; i < sortedLeaderboard.size(); i++) {
+        sortedLeaderboard[i].placement = i + 1;
+    }
+
+    sort(sortedLeaderboard.begin(), sortedLeaderboard.end(), [](const Player &a, const Player &b) {
+        return a.originalIndex < b.originalIndex;
+    });
+
+    cout << "Output placement player = ";
+    for (size_t i = 0; i < sortedLeaderboard.size(); i++) {
+        cout << sortedLeaderboard[i].placement;
+        if (i != sortedLeaderboard.size() - 1) cout << ", ";
+    }
+    cout << endl;
+
+    vector<int> newScores(4);
+    cout << "Input new score = ";
+    for (int &score : newScores) {
+        cin >> score;
+    }
+
+    for (size_t i = 0; i < leaderboard.size(); i++) {
+        leaderboard[i].score = newScores[i];
+    }
+
+    sort(leaderboard.begin(), leaderboard.end(), comparePlayers);
+
+    for (size_t i = 0; i < leaderboard.size(); i++) {
+        leaderboard[i].placement = i + 1;
+    }
+
+    sort(leaderboard.begin(), leaderboard.end(), [](const Player &a, const Player &b) {
+        return a.originalIndex < b.originalIndex;
+    });
+
+    cout << "New placement player = ";
+    for (size_t i = 0; i < leaderboard.size(); i++) {
+        cout << leaderboard[i].placement;
+        if (i != leaderboard.size() - 1) cout << ", ";
+    }
+    cout << endl;
+
+    cout << "New score = ";
+    for (size_t i = 0; i < leaderboard.size(); i++) {
+        cout << leaderboard[i].score;
+        if (i != leaderboard.size() - 1) cout << ", ";
+    }
+    cout << endl;
+
+    return 0;
+}
