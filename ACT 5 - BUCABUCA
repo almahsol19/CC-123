@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numbers[] = {4, 4, 2, 3, 4, 5, 4, 2, 6, 7};
+    int size = sizeof(numbers) / sizeof(numbers[0]);
+
+    int highestFrequency = 0;
+    int mostFrequentNumber;
+
+    for (int i = 0; i < size; i++) {
+        int frequency = 0;
+        for (int j = 0; j < size; j++) {
+            if (numbers[i] == numbers[j]) {
+                frequency++;
+            }
+        }
+
+        if (frequency > highestFrequency) {
+            highestFrequency = frequency;
+            mostFrequentNumber = numbers[i];
+        }
+    }
+
+    cout << "The most frequent number is " << mostFrequentNumber << endl;
+
+    return 0;
+}
