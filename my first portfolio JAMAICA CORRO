@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- para ang bullet kay dili ma guba -->
+    <meta charset="UTF-8">
+    
+    
+     <!-- Title sa webpage ning title diri-->
+    <title>Jamaica's Portfolio</title>
+    
+    <style>
+        /* Body Styling */
+        body {
+            font-family: Courier, sans-serif; 
+            margin: 0; 
+            padding: 0; /* gi zero para ma remove ang margin ug and pad para ang output kay dli sya gamay lantawn kay dako mn ug space ang  background ana */
+            background-color: #fef2f8; 
+            color: #333; 
+        }
+
+        /* Header background and style */
+        header {
+            background-color: #f06292; 
+            color: white; 
+            padding: 2rem; /* para space sa header nga bg */
+            text-align: center; 
+            border-radius: 4px; 
+
+        }
+
+        /* Header Title Styling */
+        header h1 {
+            margin: 0; 
+            font-size: 2.5rem; 
+        }
+
+        /* Header Paragraph Styling */
+        header p {
+            margin-top: 0.5rem; 
+            font-size: 1.1rem;
+        }
+
+        /* Container that holds the content of the page para ma display ug tarung */
+        .container {
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 2rem; 
+        }
+
+        /* Profile styling sa all*/
+        .profile {
+            display: flex; /* to align elements kung wala ni kay hulog na ang paragraph */
+            justify-content: center; 
+            align-items: center; 
+            margin-bottom: 3rem; /* Adds space below the profile */
+        }
+
+        /* Profile Image Styling */
+        .profile img {
+            width: 180px; 
+            height: 180px; 
+            border-radius: 50%; 
+            margin-right: 2rem; 
+        }
+
+        /* Profile Heading Styling about me na heading*/
+        .profile h2 {
+            color: #d81b60; /* Darker pink color for the heading nga about me*/
+            font-size: 2rem; 
+            margin: 0; 
+        }
+
+        /* Profile Paragraph Styling */
+        .profile p {
+            color: #555; 
+            font-size: 1rem; 
+        }
+
+        /* Contact Information Styling */
+        .contact-info {
+            display: flex; /*para ma align ang info */
+          
+        }
+
+        /* Styling for each contact box */
+        .contact-info div {
+            background-color: #f48fb1; /* Light pink background */
+            color: white;
+            padding: 1rem; 
+            border-radius: 8px; 
+            width: 45%; 
+            text-align: center; 
+        }
+
+        /* Contact Box Heading Styling */
+        .contact-info div h3 {
+            margin-bottom: 0.5rem; /*space below sa header */
+        }
+
+        /* Contact Box Paragraph Styling */
+        .contact-info div p {
+            margin: 0; /* Removes margin */
+            font-size: 1rem; /* Sets font size */
+        }
+
+        /* Website Link Section Styling */
+        .website-link {
+            text-align: center; 
+            margin-top: 1.5rem; 
+        }
+
+        /* Styling for the website links */
+        .website-link a {
+            padding: 0.65rem 1rem; 
+            background-color: #d81b60; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 4px; 
+            font-size: 1.1rem; 
+        }
+
+        /* Changes the background color of the link on hover */
+        .website-link a:hover {
+            background-color: #f06292;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header section -->
+<header>
+    <h1>Jamaica Escora Corro</h1> 
+    <p>Information Security Analyst | Data Scientist</p> 
+</header>
+
+<!-- Main Content Container -->
+<div class="container">
+    
+    <!-- Profile Section displaying image and information -->
+    <section class="profile">
+        <!-- Profile image -->
+        <img src="https://assets.onecompiler.app/439puaant/439ptrp8c/474016500_1631233594435312_511228553724530436_n%20(1).jpg"> <!-- Profile picture -->
+        
+        <!-- About me content -->
+        <div>
+            <h2>ABOUT ME</h2>
+            <p>○ Studied at Cebu Technological University</p>
+            <p>○ Graduate of Bachelor of Science in Information Technology</p>
+            <p>○ Securing the Future, One Byte at a Time.</p>
+        </div>
+    </section>
+
+    <!-- Contact and address Information Section -->
+    <section class="contact-info">
+        <!-- Contact number -->
+        <div>
+            <h3>Contact Number</h3>
+            <p>+6396-0608-3376</p>
+        </div>
+        
+        <!-- Address -->
+        <div>
+            <h3>Address</h3>
+            <p>Lamac Consolacion Cebu</p>
+        </div>
+    </section>
+
+    <!-- Links to Activities Section -->
+    <section class="website-link">
+        <h3>Visit My Activities</h3> 
+        
+        <!-- Links to GitHub activities -->
+        <a href="https://github.com/almahsol19/CC-123/blob/main/Activity%201/ACT%201-%20%20CORRO%20JAMAICA" target="_blank">Go to Act. 1</a> 
+        <a href="https://github.com/almahsol19/CC-123/blob/main/Activity%202/ACT%202-CORRO%2CJAMAICA" target="_blank">Go to Act. 2</a>
+        <a href="https://github.com/almahsol19/CC-123/blob/main/Activity%203/ACTIVITY%203%20-%20CORRO%20JAMAICA" target="_blank">Go to Act. 3</a>
+    </section>
+</div>
+
+</body>
+</html>
