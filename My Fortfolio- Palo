@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPortfolio</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+</head>
+<body>
+    <style>
+        .profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+    </style>
+    <header>
+        <div class="profile">
+            <img src="image_01/image/IMG_9078.jpeg" alt="Profile Picture" class="profile-picture">
+            <h1>Jhon Paul Y.Palo</h1>
+        </div>
+    </header>
+
+    <nav>
+      <h1 style="color: blue">My Activity</h1>
+        <button type="button" class="activity">
+            <a href="https://github.com/almahsol19/CC-123/blob/main/Activity%201/Act1-rindel18" target="_blank">Activity 1</a>
+        </button>
+        <button type="button" class="activity">
+            <a href="https://github.com/almahsol19/CC-123/blob/main/Activity%203/Activity%203%20Vicente" target="_blank">Activity 2</a>
+        </button>
+        
+        <button type="button" class="activity">
+            <a href="" target="_blank">Activity 3</a>
+        </button>
+<button type="button" class="activity">
+  <a href="https://github.com/almahsol19/CC-123/blob/main/Activity%204/Activity%204-Palo" target="_blank">Activity 4</a>
+</button>
+<button type="button" class="activity">
+  <a href="https://github.com/almahsol19/CC-123/blob/main/ACT%205-%20Palo" target="_blank">Activity 5</a>
+</button>
+<button type="button" class="activity">
+  <a href="https://github.com/almahsol19/CC-123/blob/main/Act%206-%20Palo" target="_blank">Activity 6</a>
+</button>
+    </nav>
+
+    <section class="personal-info"> 
+        <h1 style="color: blue">My Personal Information</h1>
+        <ul>
+            <li>
+                
+                <h3>Address:Address:
+Casili Consolacion Cebu</h3>
+            </li>
+            <li>
+                
+                <h3>Education: Currently enrolled in BSIT (Bachelor of Science in Information Technology) at Cebu Technological University Consolacion</h3>
+            </li>
+            <li>
+                
+                <h3>Phone: 09945358519</h3>
+            </li>
+            <li>
+                
+                <h3>ID number: 12230822</h3>
+            </li>
+            <li>
+              <h3> Email:
+jhonpalo58@gmail.com</h3>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>
