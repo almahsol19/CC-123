@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>🔍 Most Frequent Number Finder</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #ffcc00;
+      font-size: 28px;
+    }
+    h3 {
+      color: #58a6ff;
+    }
+    p {
+      max-width: 700px;
+      margin: auto;
+      text-align: justify;
+      color: #b3b3b3;
+    }
+    .expected-output {
+      background-color: #161b22;
+      color: #58a6ff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 3px 3px 15px rgba(255, 204, 0, 0.3);
+      display: inline-block;
+      text-align: left;
+      overflow-x: auto;
+      border: 1px solid #30363d;
+      font-family: monospace;
+    }
+    .code-block {
+      background-color: #161b22;
+      color: #58a6ff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 3px 3px 15px rgba(255, 204, 0, 0.3);
+      display: inline-block;
+      text-align: left;
+      overflow-x: auto;
+      font-family: monospace;
+    }
+    code {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔍 Most Frequent Number Finder in C++</h1>
+  <p>
+    This **C++ program** identifies the **most frequently occurring number** in an array.  
+    It efficiently **allocates memory**, processes input, and selects the **smallest number** in case of a tie.  
+    ✅ Ensures **proper memory management** before exiting.
+  </p>
+
+  <h3>📌 Expected Output</h3>
+  <pre class="expected-output">
+📊 Enter the number of elements: 7
+🔢 Enter 7 numbers: 1 2 1 1 4 5 6
+🏆 The most frequent number is: 1
+  </pre>
+
+  <h3>💻 C++ Code</h3>
+  <pre class="code-block"><code>
+#include &lt;iostream&gt;
+
+int main() {
+    int n;
+
+    std::cout << "📊 Enter the number of elements: ";
+    std::cin >> n;
+
+    int* arr = new int[n];
+
+    std::cout << "🔢 Enter " << n << " numbers: ";
+    for (int* ptr = arr; ptr < arr + n; ++ptr) {
+        std::cin >> *ptr;
+    }
+
+    bool* counted = new bool[n](); 
+
+    int maxFrequency = 0;
+    int mostFrequentNumber = 0;
+
+    for (int i = 0; i < n; ++i) {
+        if (counted[i]) continue;
+
+        int count = 1;
+        for (int j = i + 1; j < n; ++j) {
+            if (arr[i] == arr[j]) {
+                count++;
+                counted[j] = true;
+            }
+        }
+
+        if (count > maxFrequency || (count == maxFrequency && arr[i] < mostFrequentNumber)) {
+            maxFrequency = count;
+            mostFrequentNumber = arr[i];
+        }
+    }
+
+    std::cout << "🏆 The most frequent number is: " << mostFrequentNumber << std::endl;
+
+    delete[] arr;
+    delete[] counted;
+
+    return 0;
+}
+  </code></pre>
+</body>
+</html>

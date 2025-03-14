@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Activity 2 - Student Grade Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    p {
+      max-width: 700px;
+      margin: auto;
+      text-align: justify;
+      color: #333;
+    }
+    .expected-output {
+      background-color: #fff; /* White background */
+      color: #000; /* Black text */
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+      text-align: left;
+      overflow-x: auto;
+      border: 1px solid #ddd; /* Light gray border */
+    }
+    .code-block {
+      background-color: #000; /* Black background */
+      color: #fff; /* White text */
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+      text-align: left;
+      overflow-x: auto;
+    }
+    code {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎓 Student Grade Calculator in C</h1>
+  <p>
+    This interactive C program **calculates student grades** based on their performance in quizzes, assignments, and exams. 
+    It utilizes a **weighted formula** (20% quiz, 30% assignment, 50% exam) to compute the final grade and assigns a **letter grade** accordingly.
+  </p>
+
+  <h3>📝 Expected Output</h3>
+  <pre class="expected-output">
+📌 Enter the number of students: 2
+
+👩‍🎓 Student 1:
+📝 Quiz Score (0-100): 90
+📂 Assignment Score (0-100): 86
+🏆 Exam Score (0-100): 89
+🎯 Final Grade: 88.30
+📜 Letter Grade: B
+
+👨‍🎓 Student 2:
+📝 Quiz Score (0-100): 90
+📂 Assignment Score (0-100): 75
+🏆 Exam Score (0-100): 90
+🎯 Final Grade: 85.50
+📜 Letter Grade: B
+  </pre>
+
+  <h3>💻 Code</h3>
+  <pre class="code-block"><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    float quiz, assignment, exam, finalGrade;
+    char grade;
+    int enterNumberOfStudent = 0;
+
+    printf("🎓 Enter the number of students: ");
+    scanf("%d", &enterNumberOfStudent);
+
+    for (int student = 0; student != enterNumberOfStudent; student++) {
+        printf("\n👩‍🎓 Student %d:\n", student + 1);
+        
+        printf("📝 Quiz Score (0-100): ");
+        scanf("%f", &quiz);
+        
+        printf("📂 Assignment Score (0-100): ");
+        scanf("%f", &assignment);
+        
+        printf("🏆 Exam Score (0-100): ");
+        scanf("%f", &exam);
+
+        finalGrade = (quiz * 0.20) + (assignment * 0.30) + (exam * 0.50);
+
+        if (finalGrade >= 90) {
+            grade = 'A';
+        } else if (finalGrade >= 80) {
+            grade = 'B';
+        } else if (finalGrade >= 70) {
+            grade = 'C';
+        } else if (finalGrade >= 60) {
+            grade = 'D';
+        } else {
+            grade = 'F';
+        }
+
+        printf("🎯 Final Grade: %.2f", finalGrade);
+        printf("\n📜 Letter Grade: %c\n", grade);
+    }
+
+    printf("\n✅ All grades calculated successfully!\n");
+    return 0;
+}
+  </code></pre>
+</body>
+</html>
